@@ -1,0 +1,46 @@
+{
+  "Hero": {
+    "available": "AVAILABLE FOR OPPORTUNITIES",
+    "role": "SOFTWARE ENGINEER",
+    "location": "Cau Giay, Ha Noi",
+    "summary": "Software Engineer with <important>2+ years</important> of experience building distributed, production-grade backend systems. Skilled in <important>Node.js/Go microservices</important>, event-driven architecture, and cloud infrastructure. Comfortable owning services end-to-end — from design and implementation to deployment, monitoring, and reliability improvements.",
+    "focus": "Focus",
+    "focusValue": "Backend Systems",
+    "cloud": "Cloud",
+    "cloudValue": "AWS & K8s",
+    "languages": "Languages",
+    "languagesValue": "Go, TS, Python",
+    "database": "Database",
+    "databaseValue": "PostgreSQL"
+  },
+  "Skills": {
+    "title": "Technical Arsenal",
+    "cat_languages": "Languages",
+    "cat_technologies": "Technologies",
+    "cat_databases": "Databases",
+    "cat_cloud": "Cloud & Infrastructure",
+    "cat_architecture": "Architecture",
+    "cat_devops": "DevOps & Operations"
+  },
+  "Experience": {
+    "title": "Experience",
+    "present": "Present"
+  },
+  "Experience": {
+    "title": "Work Experience"
+  },
+  "Education": {
+    "title": "Education",
+    "degree": "Computer Science",
+    "university": "VNU University of Engineering and Technology",
+    "period": "Oct 2022 – Present",
+    "cert_title": "Certifications",
+    "cert_name": "Aptis ESOL",
+    "cert_issuer": "British Council English Test",
+    "cert_date": "2023",
+    "cert_details": "<strong class=\"font-semibold text-foreground\">Overall: B2 (CEFR)</strong> — Listening B1, Reading C, Speaking B1, Writing B2"
+  },
+  "Footer": {
+    "rights": "All rights reserved."
+  }
+}

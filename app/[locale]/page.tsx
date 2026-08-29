@@ -3,15 +3,20 @@ import { Skills } from "@/components/Skills";
 import { Experience } from "@/components/Experience";
 import { Education } from "@/components/Education";
 import { ThemeToggle } from "@/components/ThemeToggle";
+import { LangToggle } from "@/components/LangToggle";
+import { useTranslations } from 'next-intl';
 
 export default function Home() {
+  const t = useTranslations('Footer');
+
   return (
     <main className="min-h-screen bg-background relative selection:bg-accent/30">
-      <nav className="absolute top-0 w-full p-6 flex justify-end z-50 max-w-5xl left-1/2 -translate-x-1/2">
+      <div className="fixed bottom-6 right-6 z-50 flex flex-col gap-2">
+        <LangToggle />
         <ThemeToggle />
-      </nav>
+      </div>
       
-      <div className="pt-12 md:pt-20">
+      <div>
         <Hero />
         <Skills />
         <Experience />
@@ -19,7 +24,7 @@ export default function Home() {
       </div>
 
       <footer className="py-8 text-center text-muted-foreground text-sm">
-        <p>© {new Date().getFullYear()} Hoàng Xuân Trường. All rights reserved.</p>
+        <p>© {new Date().getFullYear()} Hoàng Xuân Trường. {t('rights')}</p>
       </footer>
     </main>
   );

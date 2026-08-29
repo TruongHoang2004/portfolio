@@ -1,35 +1,39 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useTranslations } from 'next-intl';
 
-const skillsData = [
+const getSkillsData = (t: any) => [
   {
-    category: "Languages",
+    category: t('cat_languages'),
     skills: ["Golang", "TypeScript", "JavaScript", "Python", "Java", "C++", "SQL"],
   },
   {
-    category: "Technologies",
+    category: t('cat_technologies'),
     skills: ["Node.js", "NestJS", "Express", "Fastify", "GraphQL", "REST API", "gRPC", "React", "Next.js"],
   },
   {
-    category: "Databases",
+    category: t('cat_databases'),
     skills: ["PostgreSQL", "Prisma", "Redis", "Flyway", "Atlas"],
   },
   {
-    category: "Cloud & Infrastructure",
+    category: t('cat_cloud'),
     skills: ["Docker", "Kubernetes", "Helm", "ArgoCD", "AWS (EC2, S3, IAM)", "Nginx"],
   },
   {
-    category: "Architecture",
+    category: t('cat_architecture'),
     skills: ["Distributed Systems", "Event-driven Architecture", "Microservices", "Message Queues"],
   },
   {
-    category: "DevOps & Operations",
+    category: t('cat_devops'),
     skills: ["GitHub Actions", "Jenkins", "Gitlab CI/CD", "Linux", "Grafana", "Loki", "Promtail", "K8s"],
   },
 ];
 
 export function Skills() {
+  const t = useTranslations('Skills');
+  const skillsData = getSkillsData(t);
+
   return (
     <section className="py-16 bg-muted/30 border-y border-border/50">
       <div className="max-w-5xl mx-auto px-6">
@@ -40,7 +44,7 @@ export function Skills() {
           transition={{ duration: 0.5 }}
           className="mb-8"
         >
-          <h2 className="text-2xl font-bold tracking-tight mb-2">Technical Arsenal</h2>
+          <h2 className="text-2xl font-bold tracking-tight mb-2">{t('title')}</h2>
           <div className="w-8 h-1 bg-accent rounded-full"></div>
         </motion.div>
 
