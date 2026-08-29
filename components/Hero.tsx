@@ -1,6 +1,6 @@
 "use client";
 
-import { Mail, MapPin, Phone, Server, Cloud, Code2, Database } from "lucide-react";
+import { Mail, MapPin, Phone } from "lucide-react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 
@@ -46,28 +46,8 @@ export function Hero() {
           </p>
         </div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-1">
-          <div className="flex flex-col gap-1 p-3 rounded-xl bg-background border border-border shadow-sm">
-            <Server className="w-4 h-4 text-accent mb-0.5" />
-            <span className="text-[11px] text-muted-foreground uppercase tracking-wider">Focus</span>
-            <span className="font-semibold text-xs">Backend Systems</span>
-          </div>
-          <div className="flex flex-col gap-1 p-3 rounded-xl bg-background border border-border shadow-sm">
-            <Cloud className="w-4 h-4 text-accent mb-0.5" />
-            <span className="text-[11px] text-muted-foreground uppercase tracking-wider">Cloud</span>
-            <span className="font-semibold text-xs">AWS &amp; K8s</span>
-          </div>
-          <div className="flex flex-col gap-1 p-3 rounded-xl bg-background border border-border shadow-sm">
-            <Code2 className="w-4 h-4 text-accent mb-0.5" />
-            <span className="text-[11px] text-muted-foreground uppercase tracking-wider">Languages</span>
-            <span className="font-semibold text-xs">Go, TS, Python</span>
-          </div>
-          <div className="flex flex-col gap-1 p-3 rounded-xl bg-background border border-border shadow-sm">
-            <Database className="w-4 h-4 text-accent mb-0.5" />
-            <span className="text-[11px] text-muted-foreground uppercase tracking-wider">Database</span>
-            <span className="font-semibold text-xs">PostgreSQL</span>
-          </div>
-        </div>
+
+
       </motion.div>
 
       <motion.div 
