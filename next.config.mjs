@@ -1,10 +1,4 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
-  turbo: {
-    resolveAlias: {
-      'next-intl/config': './i18n/request.ts',
-    },
-  },
-};
+const nextConfig = {};
 
 export default nextConfig;
