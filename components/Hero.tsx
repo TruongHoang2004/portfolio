@@ -3,11 +3,8 @@
 import { Mail, MapPin, Phone, Server, Cloud, Code2, Database } from "lucide-react";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { useTranslations } from 'next-intl';
 
 export function Hero() {
-  const t = useTranslations('Hero');
-
   return (
     <section className="pt-8 pb-12 md:pt-16 md:pb-16 px-6 max-w-5xl mx-auto flex flex-col md:flex-row items-center md:items-start gap-8 md:gap-12">
       <motion.div 
@@ -18,13 +15,13 @@ export function Hero() {
       >
         <div className="space-y-1">
           <div className="inline-block px-3 py-1 mb-2 text-xs font-semibold tracking-wider text-accent bg-accent/10 rounded-full">
-            {t('available')}
+            AVAILABLE FOR OPPORTUNITIES
           </div>
           <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-foreground">
             HOÀNG XUÂN TRƯỜNG
           </h1>
           <h2 className="text-lg md:text-xl font-bold bg-gradient-to-r from-accent to-purple-500 bg-clip-text text-transparent">
-            {t('role')}
+            SOFTWARE ENGINEER
           </h2>
         </div>
 
@@ -39,34 +36,36 @@ export function Hero() {
           </a>
           <div className="flex items-center gap-1.5">
             <MapPin className="w-4 h-4 text-accent" />
-            <span>{t('location')}</span>
+            <span>Cau Giay, Ha Noi</span>
           </div>
         </div>
 
         <div className="bg-muted/40 p-4 md:p-5 rounded-2xl border border-border backdrop-blur-sm shadow-sm">
-          <p className="text-muted-foreground leading-relaxed text-sm md:text-base" dangerouslySetInnerHTML={{ __html: t.raw('summary') }} />
+          <p className="text-muted-foreground leading-relaxed text-sm md:text-base">
+            Software Engineer with <strong className="text-foreground font-semibold">2+ years</strong> of experience building distributed, production-grade backend systems. Skilled in <strong className="text-foreground font-semibold">Node.js/Go microservices</strong>, event-driven architecture, and cloud infrastructure. Comfortable owning services end-to-end — from design and implementation to deployment, monitoring, and reliability improvements.
+          </p>
         </div>
 
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-1">
           <div className="flex flex-col gap-1 p-3 rounded-xl bg-background border border-border shadow-sm">
             <Server className="w-4 h-4 text-accent mb-0.5" />
-            <span className="text-[11px] text-muted-foreground uppercase tracking-wider">{t('focus')}</span>
-            <span className="font-semibold text-xs">{t('focusValue')}</span>
+            <span className="text-[11px] text-muted-foreground uppercase tracking-wider">Focus</span>
+            <span className="font-semibold text-xs">Backend Systems</span>
           </div>
           <div className="flex flex-col gap-1 p-3 rounded-xl bg-background border border-border shadow-sm">
             <Cloud className="w-4 h-4 text-accent mb-0.5" />
-            <span className="text-[11px] text-muted-foreground uppercase tracking-wider">{t('cloud')}</span>
-            <span className="font-semibold text-xs">{t('cloudValue')}</span>
+            <span className="text-[11px] text-muted-foreground uppercase tracking-wider">Cloud</span>
+            <span className="font-semibold text-xs">AWS &amp; K8s</span>
           </div>
           <div className="flex flex-col gap-1 p-3 rounded-xl bg-background border border-border shadow-sm">
             <Code2 className="w-4 h-4 text-accent mb-0.5" />
-            <span className="text-[11px] text-muted-foreground uppercase tracking-wider">{t('languages')}</span>
-            <span className="font-semibold text-xs">{t('languagesValue')}</span>
+            <span className="text-[11px] text-muted-foreground uppercase tracking-wider">Languages</span>
+            <span className="font-semibold text-xs">Go, TS, Python</span>
           </div>
           <div className="flex flex-col gap-1 p-3 rounded-xl bg-background border border-border shadow-sm">
             <Database className="w-4 h-4 text-accent mb-0.5" />
-            <span className="text-[11px] text-muted-foreground uppercase tracking-wider">{t('database')}</span>
-            <span className="font-semibold text-xs">{t('databaseValue')}</span>
+            <span className="text-[11px] text-muted-foreground uppercase tracking-wider">Database</span>
+            <span className="font-semibold text-xs">PostgreSQL</span>
           </div>
         </div>
       </motion.div>

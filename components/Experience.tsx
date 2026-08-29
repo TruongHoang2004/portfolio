@@ -4,12 +4,9 @@ import { motion } from "framer-motion";
 import { getExperiencesData } from "@/data/experience";
 import { Briefcase, ChevronRight, CircleDot } from "lucide-react";
 import React from "react";
-import { useLocale, useTranslations } from "next-intl";
 
 export function Experience() {
-  const locale = useLocale();
-  const t = useTranslations("Experience");
-  const experiencesData = getExperiencesData(locale);
+  const experiencesData = getExperiencesData('en');
 
   return (
     <section className="py-20 px-6 max-w-5xl mx-auto">
@@ -22,7 +19,7 @@ export function Experience() {
       >
         <Briefcase className="w-8 h-8 text-accent" />
         <div>
-          <h2 className="text-3xl font-bold tracking-tight">{t("title")}</h2>
+          <h2 className="text-3xl font-bold tracking-tight">Work Experience</h2>
           <div className="w-12 h-1 bg-accent rounded-full mt-2"></div>
         </div>
       </motion.div>
@@ -123,4 +120,3 @@ export function Experience() {
     </section>
   );
 }
-
