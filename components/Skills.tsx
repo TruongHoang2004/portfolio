@@ -13,7 +13,7 @@ const skillsData = [
   },
   {
     category: "Databases",
-    skills: ["PostgreSQL", "Prisma", "Redis", "Flyway", "Atlas"],
+    skills: ["PostgreSQL", "MySQL", "GORM", "Prisma", "Redis", "Flyway", "Atlas"],
   },
   {
     category: "Cloud & Infrastructure",
@@ -21,11 +21,11 @@ const skillsData = [
   },
   {
     category: "Architecture",
-    skills: ["Distributed Systems", "Event-driven Architecture", "Microservices", "Message Queues"],
+    skills: ["Distributed Systems", "Event-driven Architecture", "Microservices", "Kafka", "RabbitMQ"],
   },
   {
     category: "DevOps & Operations",
-    skills: ["GitHub Actions", "Jenkins", "Gitlab CI/CD", "Linux", "Grafana", "Loki", "Promtail", "K8s"],
+    skills: ["GitHub Actions", "Jenkins", "GitLab CI/CD", "Linux", "Grafana", "Loki", "Promtail", "Prometheus"],
   },
 ];
 
@@ -40,7 +40,7 @@ export function Skills() {
           transition={{ duration: 0.5 }}
           className="mb-8"
         >
-          <h2 className="text-2xl font-bold tracking-tight mb-2">Technical Arsenal</h2>
+          <h2 className="text-2xl font-bold tracking-tight mb-2">Tools of the Trade</h2>
           <div className="w-8 h-1 bg-accent rounded-full"></div>
         </motion.div>
 

@@ -97,7 +97,7 @@ export const getExperiencesData = (locale: string): Experience[] => {
             isVi ? "Mở rộng hệ thống quản lý danh tính và truy cập, triển khai xác thực JWT và RBAC." : "Extended the identity and access management system, implementing JWT authentication, role-based access control, and comprehensive user profile and multi-address management APIs.",
             isVi ? "Đóng gói toàn bộ ứng dụng (NestJS, Next.js, Strapi, PostgreSQL) bằng Docker." : "Containerized the entire application stack (NestJS, Next.js, Strapi, PostgreSQL) using Docker and Docker Compose, and configured CI/CD pipelines via GitHub Actions for automated testing."
           ],
-          technologies: "NestJS · TypeScript · PostgreSQL · TypeORM · Strapi CMS · JWT · Docker · GitHub Actions"
+          technologies: "Go · NestJS · TypeScript · PostgreSQL · TypeORM · Strapi CMS · JWT · Docker · GitHub Actions"
         }
       ]
     },
@@ -110,7 +110,8 @@ export const getExperiencesData = (locale: string): Experience[] => {
           achievements: [
             isVi ? "Làm việc với tư cách là thành viên của nhóm phát triển 5 người, chủ yếu chịu trách nhiệm về phát triển backend và DevOps." : "Worked as part of a 5-member development team, primarily responsible for backend development and DevOps, while contributing to full-stack web application development.",
             isVi ? "Triển khai API backend và hỗ trợ triển khai ứng dụng, cấu hình môi trường." : "Implemented backend APIs and supported application deployment and environment configuration, gaining hands-on experience with real-world development workflows.",
-            isVi ? "Hợp tác với các thành viên trong nhóm thông qua chia nhỏ công việc, đánh giá mã và phát triển dựa trên Git." : "Collaborated with teammates through task breakdown, Git-based development, code reviews, and team coordination, building a strong foundation in professional software engineering practices."
+            isVi ? "Hợp tác với các thành viên trong nhóm thông qua chia nhỏ công việc, đánh giá mã và phát triển dựa trên Git." : "Collaborated with teammates through task breakdown, Git-based development, code reviews, and team coordination, building a strong foundation in professional software engineering practices.",
+            isVi ? "Sử dụng Go trong một số dự án web để học hỏi và thực hành phát triển backend." : "Used Go in selected web projects to learn and practice backend development."
           ],
         }
       ]

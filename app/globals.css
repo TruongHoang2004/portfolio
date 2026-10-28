@@ -1,23 +1,24 @@
 @import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
 
 :root {
-  --background: #ffffff;
-  --foreground: #0f172a;
-  --muted: #f1f5f9;
-  --muted-foreground: #64748b;
-  --accent: #2563eb;
+  --background: #f7f6f0;
+  --foreground: #202b2a;
+  --muted: #e8eee8;
+  --muted-foreground: #586863;
+  --accent: #17695c;
   --accent-foreground: #ffffff;
-  --border: #e2e8f0;
+  --border: #d7dcd4;
 }
 
 .dark {
-  --background: #020617;
-  --foreground: #f8fafc;
-  --muted: #1e293b;
-  --muted-foreground: #94a3b8;
-  --accent: #3b82f6;
-  --accent-foreground: #ffffff;
-  --border: #1e293b;
+  --background: #151e1c;
+  --foreground: #f0f2e9;
+  --muted: #24322d;
+  --muted-foreground: #a9bbb1;
+  --accent: #8bcbb5;
+  --accent-foreground: #151e1c;
+  --border: #35483e;
 }
 
 @theme inline {
@@ -38,3 +39,104 @@ body {
   font-family: var(--font-sans), sans-serif;
   @apply antialiased;
 }
+
+/* A connected tree that reflows vertically on smaller screens. */
+.learning-root {
+  position: relative;
+  max-width: 26rem;
+  margin-inline: auto;
+}
+
+.learning-root::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  height: 2rem;
+  width: 2px;
+  background: var(--border);
+}
+
+.learning-branches {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1.25rem;
+  margin-top: 2rem;
+  padding-left: 1.25rem;
+  border-left: 2px solid var(--border);
+  position: relative;
+}
+
+.learning-branches::before {
+  content: "";
+  position: absolute;
+  left: -2px;
+  right: 50%;
+  top: 0;
+  height: 2px;
+  background: var(--border);
+}
+
+.learning-branch {
+  position: relative;
+  min-width: 0;
+}
+
+.learning-branch::before {
+  content: "";
+  position: absolute;
+  left: calc(-1.25rem - 2px);
+  top: 2rem;
+  width: 1.25rem;
+  height: 2px;
+  background: var(--border);
+}
+
+@media (min-width: 768px) {
+  .learning-branches {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5rem 3rem;
+    padding-left: 0;
+    border-left: 0;
+    align-items: start;
+  }
+
+  .learning-branches::before {
+    left: calc(50% - 1px);
+    right: auto;
+    width: 2px;
+    height: 100%;
+  }
+
+  .learning-branch::before {
+    left: auto;
+    right: -1.5rem;
+    width: 1.5rem;
+  }
+
+  .learning-branch:nth-child(even)::before {
+    left: -1.5rem;
+    right: auto;
+  }
+}
+
+/* Editorial notebook: paper, ink, restrained rules, and readable typography. */
+html { scroll-behavior: smooth; scroll-padding-top: 2rem; }
+.notebook h2 { font-family: Georgia, "Times New Roman", serif; font-weight: 400; }
+.notebook-label { font-family: var(--font-geist-mono), monospace; font-size: .6875rem; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); line-height: 1.7; }
+.notebook-headline { font-family: Georgia, "Times New Roman", serif; font-size: clamp(2.7rem, 6vw, 4.5rem); font-weight: 400; letter-spacing: -.045em; line-height: 1.06; }
+.notebook-button { display: inline-flex; align-items: center; justify-content: center; gap: .6rem; padding: .8rem 1rem; border: 1px solid var(--accent); border-radius: 4px; background: var(--accent); color: var(--accent-foreground); font-size: .8125rem; font-weight: 500; }
+.notebook-button:hover { opacity: .85; }
+.notebook-button-secondary { background: transparent; color: var(--accent); border-color: var(--border); }
+.notebook-note { padding: 1.5rem; border: 1px solid var(--border); background: var(--muted); transform: rotate(2deg); box-shadow: 5px 5px 0 var(--border); border-radius: 3px; }
+.notebook .rounded-2xl, .notebook .rounded-xl { border-radius: 5px; }
+.notebook .shadow-sm, .notebook .shadow-md { box-shadow: none; }
+.notebook .learning-map { padding: 1.5rem; border-radius: 5px; background-color: var(--muted); background-image: radial-gradient(var(--border) .8px, transparent .8px); background-size: 16px 16px; }
+.notebook .learning-root { border-radius: 4px; }
+.notebook .learning-branch h3 { font-family: inherit; }
+.notebook #projects article { border-width: 0 0 1px; border-radius: 0; padding-inline: 0; }
+.notebook #projects article h3 { font-family: Georgia, "Times New Roman", serif; font-size: 1.65rem; font-weight: 400; }
+.notebook #projects article > p:first-child { font-family: var(--font-geist-mono), monospace; font-size: .6875rem; }
+.notebook #projects article ul { padding-left: 1.15rem; }
+@media (max-width: 767px) { .notebook-note { max-width: 24rem; transform: none; } .notebook .learning-map { padding: 1.25rem .75rem; } }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .notebook *, .notebook *::before, .notebook *::after { animation: none !important; transition: none !important; } }

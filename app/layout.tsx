@@ -14,8 +14,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Hoàng Xuân Trường | Software Engineer",
-  description: "Portfolio of Hoàng Xuân Trường — Software Engineer specializing in backend systems, microservices, and cloud infrastructure.",
+  title: "Hoàng Xuân Trường | Backend Engineer · Go",
+  description: "Backend engineer focused on Go, distributed systems, and cloud infrastructure. Explore recent projects and a mindmap of current learning in architecture, testing, and AI workflows.",
 };
 
 export default function RootLayout({
@@ -32,8 +32,9 @@ export default function RootLayout({
       <body suppressHydrationWarning className="min-h-full flex flex-col bg-background text-foreground transition-colors duration-300">
         <ThemeProvider
           attribute="class"
-          defaultTheme="system"
-          enableSystem
+          defaultTheme="light"
+          storageKey="portfolio-notebook-theme"
+          enableSystem={false}
           disableTransitionOnChange
         >
           {children}
