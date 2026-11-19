@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "cv:pdf": "bash scripts/build-cv-pdf.sh"
   },
   "dependencies": {
     "framer-motion": "^13.1.1",

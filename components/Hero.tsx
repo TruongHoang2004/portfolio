@@ -1,4 +1,5 @@
-import { ArrowUpRight, Mail, MapPin, Phone } from "lucide-react";
+import { ArrowUpRight, Download, Mail, MapPin, Phone } from "lucide-react";
+import { CV_PDF_PATH } from "@/data/cv";
 import Image from "next/image";
 
 export function Hero() {
@@ -17,6 +18,7 @@ export function Hero() {
           </p>
           <div className="flex flex-wrap gap-3 mt-7">
             <a href="#projects" className="notebook-button">Explore my work <ArrowUpRight className="w-4 h-4" aria-hidden="true" /></a>
+            <a href={CV_PDF_PATH} download className="notebook-button notebook-button-secondary"><Download className="w-4 h-4" aria-hidden="true" />Download CV</a>
             <a href="#learning" className="notebook-button notebook-button-secondary">Open my learning notebook</a>
           </div>
         </div>

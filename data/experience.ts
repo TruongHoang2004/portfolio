@@ -18,9 +18,37 @@ export const getExperiencesData = (locale: string): Experience[] => {
   
   return [
     {
+      company: "PiScale",
+      role: isVi ? "Kỹ sư Backend (Cộng tác viên)" : "Backend Engineer (Collaborator)",
+      period: isVi ? "Tháng 10 2026 – Hiện tại" : "Oct 2026 – Present",
+      description: isVi
+        ? "Communi: nền tảng chăm sóc khách hàng đa kênh gồm ~36 microservice, hỗ trợ SaaS và on-premise."
+        : "Communi: an omnichannel customer-engagement platform of ~36 microservices, offered as SaaS and on-premise.",
+      projects: [
+        {
+          name: "Zalo Personal Connector",
+          description: isVi ? "Dịch vụ mới, đã phát hành" : "New service, released",
+          achievements: [
+            "Built and released a ~12,500-line NestJS/Prisma/MySQL service with 59 tests: QR account linking over SSE, 1:1 and group messaging.",
+            "Added outbox-based webhook delivery, MySQL leader locking, graceful shutdown and SSRF protection; shipped CI and Kubernetes deployment.",
+            "Wrote the matching ~3,700-line Go plugin in omni-bridge with webhook verification and temporary/permanent error classification.",
+          ],
+          technologies: "NestJS · Prisma · MySQL · Go · Kubernetes",
+        },
+        {
+          name: "Integration & E2E testing",
+          achievements: [
+            "Built ~9,400 lines of black-box tests across 10 platforms with containerized environments, fake platform servers, parallel runs and GitLab CI reports.",
+            "Integrated Telegram group conversations into Communi Desk across 2 services, including group migration and log-token hardening.",
+          ],
+          technologies: "Go · Docker · GitLab CI · Kafka · Redis",
+        },
+      ],
+    },
+    {
       company: "SETA International",
       role: isVi ? "Kỹ sư Phần mềm" : "Software Engineer",
-      period: isVi ? "Tháng 9 2025 – Hiện tại" : "Sep 2025 – Present",
+      period: isVi ? "Tháng 9 2025 – Tháng 10 2026" : "Sep 2025 – Oct 2026",
       description: isVi 
         ? "Đóng góp vào nhiều dự án doanh nghiệp, bao gồm kỹ thuật nền tảng, phát triển full-stack và hạ tầng đám mây."
         : "Contributed to multiple enterprise projects, spanning platform engineering, full-stack development, and cloud infrastructure.",
@@ -104,17 +132,26 @@ export const getExperiencesData = (locale: string): Experience[] => {
     {
       company: "National Cyber Security Center of Vietnam",
       role: isVi ? "Thực tập sinh Lập trình viên Fullstack" : "Fullstack Developer Intern",
-      period: isVi ? "Tháng 9 2024 - Tháng 3 2025" : "Sep 2024 - Mar 2025",
+      period: isVi ? "Tháng 9 2024 – Tháng 6 2025" : "Sep 2024 – Jun 2025",
+      description: isVi
+        ? "Lập trình viên fullstack trong nhóm thực tập 5 người, cùng nhận và thực hiện các dự án web nhỏ; chủ yếu phụ trách backend và DevOps."
+        : "Fullstack developer in a 5-person intern team that took on and delivered small web projects, focused mainly on backend and DevOps.",
       projects: [
         {
+          name: isVi ? "Web bán hàng cho đơn vị affiliate" : "Affiliate e-commerce site",
           achievements: [
-            isVi ? "Làm việc với tư cách là thành viên của nhóm phát triển 5 người, chủ yếu chịu trách nhiệm về phát triển backend và DevOps." : "Worked as part of a 5-member development team, primarily responsible for backend development and DevOps, while contributing to full-stack web application development.",
-            isVi ? "Triển khai API backend và hỗ trợ triển khai ứng dụng, cấu hình môi trường." : "Implemented backend APIs and supported application deployment and environment configuration, gaining hands-on experience with real-world development workflows.",
-            isVi ? "Hợp tác với các thành viên trong nhóm thông qua chia nhỏ công việc, đánh giá mã và phát triển dựa trên Git." : "Collaborated with teammates through task breakdown, Git-based development, code reviews, and team coordination, building a strong foundation in professional software engineering practices.",
-            isVi ? "Sử dụng Go trong một số dự án web để học hỏi và thực hành phát triển backend." : "Used Go in selected web projects to learn and practice backend development."
+            isVi ? "Xây dựng API backend cho một web bán hàng đơn giản của đơn vị affiliate, dùng NestJS với frontend Next.js." : "Built the backend APIs for a simple online store run by an affiliate partner, using NestJS with a Next.js frontend.",
           ],
-        }
-      ]
-    }
+        },
+        {
+          name: isVi ? "Xây dựng lại trang báo điện tử" : "Online news site rebuild",
+          achievements: [
+            isVi ? "Cùng nhóm viết lại toàn bộ giao diện và backend của một trang báo đang hoạt động; tôi xây dựng backend và viết một CLI bằng Go để migrate dữ liệu từ hệ thống cũ sang hệ thống mới." : "Rebuilt an existing news website end to end with the team (new frontend and backend); I built the backend and wrote a Go CLI that migrated content from the old system to the new one.",
+            isVi ? "Triển khai cả hai web lên internet bằng Docker và Nginx reverse proxy." : "Deployed both sites to the internet with Docker and an Nginx reverse proxy.",
+          ],
+          technologies: "NestJS · Next.js · Docker · Nginx · Go",
+        },
+      ],
+    },
   ];
 };

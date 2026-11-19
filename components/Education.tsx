@@ -26,12 +26,15 @@ export function Education() {
                   VNU University of Engineering and Technology
                 </h3>
                 <span className="text-sm font-medium text-accent whitespace-nowrap">
-                  Oct 2022 – Present
+                  Oct 2022 – Dec 2026
                 </span>
               </div>
-              <h4 className="text-muted-foreground font-medium mb-4">
-                Computer Science
+              <h4 className="text-muted-foreground font-medium mb-1">
+                Bachelor of Computer Science
               </h4>
+              <p className="text-muted-foreground text-sm">
+                Vietnam National University, Hanoi · Thesis defense in Dec 2026
+              </p>
             </div>
           </motion.div>
 
