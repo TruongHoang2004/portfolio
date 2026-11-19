@@ -122,8 +122,9 @@ export const cv = {
     },
     {
       company: "Tiên Phong Telecom Ecommerce",
-      role: "Tech Lead / Backend Engineer (Freelance)",
+      role: "Tech Lead & Backend Engineer (Freelance)",
       period: "Mar 2025 – Aug 2025",
+      summary: "Short-term freelance project with a 3-person team (designer, frontend, me on backend and DevOps). I led technical decisions, worked directly with the client, and shipped the platform to production with real customers.",
       projects: [
         {
           name: "E-commerce platform",

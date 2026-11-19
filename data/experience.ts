@@ -114,8 +114,11 @@ export const getExperiencesData = (locale: string): Experience[] => {
     },
     {
       company: "Tiên Phong Telecom Ecommerce",
-      role: isVi ? "Tech Lead / Kỹ sư Backend (Freelancer)" : "Tech Lead / Backend Engineer (Freelancer)",
-      period: isVi ? "Tháng 3 2025 - Tháng 8 2025" : "Mar 2025 - Aug 2025",
+      role: isVi ? "Trưởng nhóm kỹ thuật & Kỹ sư Backend (Freelance)" : "Tech Lead & Backend Engineer (Freelance)",
+      period: isVi ? "Tháng 3 2025 – Tháng 8 2025" : "Mar 2025 – Aug 2025",
+      description: isVi
+        ? "Dự án freelance ngắn hạn với nhóm 3 người (designer, frontend và tôi phụ trách backend, DevOps). Tôi quyết định các vấn đề kỹ thuật, làm việc trực tiếp với khách hàng và đưa sản phẩm vào vận hành với khách hàng thật."
+        : "Short-term freelance project with a 3-person team (designer, frontend, me on backend and DevOps). I led technical decisions, worked directly with the client, and shipped the platform to production with real customers.",
       projects: [
         {
           achievements: [
@@ -125,7 +128,7 @@ export const getExperiencesData = (locale: string): Experience[] => {
             isVi ? "Mở rộng hệ thống quản lý danh tính và truy cập, triển khai xác thực JWT và RBAC." : "Extended the identity and access management system, implementing JWT authentication, role-based access control, and comprehensive user profile and multi-address management APIs.",
             isVi ? "Đóng gói toàn bộ ứng dụng (NestJS, Next.js, Strapi, PostgreSQL) bằng Docker." : "Containerized the entire application stack (NestJS, Next.js, Strapi, PostgreSQL) using Docker and Docker Compose, and configured CI/CD pipelines via GitHub Actions for automated testing."
           ],
-          technologies: "Go · NestJS · TypeScript · PostgreSQL · TypeORM · Strapi CMS · JWT · Docker · GitHub Actions"
+          technologies: "NestJS · TypeScript · PostgreSQL · TypeORM · Strapi CMS · JWT · Docker · GitHub Actions"
         }
       ]
     },
