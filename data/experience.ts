@@ -68,19 +68,17 @@ export const getExperiencesData = (locale: string): Experience[] => {
           technologies: "Go · Node.js · React · GraphQL · PostgreSQL · Docker · Kubernetes · Helm · Argo CD · Jenkins · Prometheus · GitOps"
         },
         {
-          name: "Veritone (aiWARE Core)",
-          description: isVi ? "Nền tảng AI Multi-tenant" : "Multi-tenant AI Platform",
+          name: "Veritone aiWARE Core",
+          description: isVi
+            ? "Core GraphQL API của nền tảng AI aiWARE · Từ tháng 1 2026. Team ~6 kỹ sư Việt Nam cùng các kỹ sư phía khách hàng ở nước ngoài. Tôi ở vị trí shadow: một kỹ sư headcount trao đổi với khách hàng hằng ngày vào ban đêm, còn tôi xử lý các task khách hàng giao vào ban ngày."
+            : "Core GraphQL API of Veritone's aiWARE AI platform · From Jan 2026. Team of ~6 engineers in Vietnam working with the client's overseas engineers. I worked as a shadow engineer: a headcount engineer handled daily overnight syncs with the client, and I delivered the client-assigned tasks during the day.",
           achievements: [
-            isVi ? "Chuyển đổi API GraphQL công khai từ Apollo/Express sang GraphQL Yoga + Envelop trên Fastify." : "Migrated the public GraphQL API from Apollo/Express to GraphQL Yoga + Envelop on Fastify and upgraded to GraphQL v16, modernizing the API foundation with no test regressions.",
-            isVi ? "Thiết kế và triển khai API sắp xếp có kiểu cho danh sách gói ứng dụng." : "Designed and implemented a typed sorting API for application-package listings, supporting 5 sortable fields and configurable direction while preserving existing filtering and pagination.",
-            isVi ? "Thêm tính năng truy xuất hàng loạt theo danh sách ID vào API ứng dụng, giảm thiểu độ trễ." : "Added batch retrieval by ID list to the applications API, replacing N per-application round trips with a single request and reducing client-side API overhead.",
-            isVi ? "Triển khai xác thực quyền hạn trong luồng tạo và cập nhật người dùng." : "Implemented role-to-application authorization validation in user creation and update flows, preventing invalid role assignments that could silently strip permissions under object-level access control.",
-            isVi ? "Giải quyết các lỗi đóng gói ứng dụng liên cụm bằng cách bổ sung trường loại thực thể bị thiếu trong API GraphQL." : "Resolved cross-cluster application packaging failures by exposing a missing entity-type field in the GraphQL API, fixing enum validation errors in the package export/import CLI.",
-            isVi ? "Tìm ra nguyên nhân gốc rễ của sự cố production mức độ cao sau khi di chuyển schema phân cấp nội dung." : "Root-caused a high-priority production outage following a content-hierarchy schema migration, identifying 169 corrupted records (151 root folders) out of 363,515 through SQL analysis and driving a preventative migration design.",
-            isVi ? "Chẩn đoán và khắc phục các lỗi di chuyển dữ liệu khác, khôi phục dữ liệu cho các tổ chức bị ảnh hưởng." : "Diagnosed and remediated additional migration defects, including a type-mapping mismatch that emptied a downstream analytics API and a null-handling bug, restoring affected organizations' data.",
-            isVi ? "Khắc phục tất cả các CVE bộ chứa mức độ Nghiêm trọng và Cao về 0." : "Remediated all Critical and High container CVEs to zero remaining Trivy findings and improved CI reliability by refactoring integration tests that blocked pull-request verification."
+            isVi ? "Hiện đại hoá API: migrate GraphQL API public từ Apollo/Express sang GraphQL Yoga + Envelop trên Fastify (GraphQL v16), không phát sinh regression." : "Modernized the public GraphQL API: migrated from Apollo/Express to GraphQL Yoga + Envelop on Fastify (GraphQL v16) with zero test regressions.",
+            isVi ? "Phát triển API: sorting có kiểu (5 trường), batch fetch theo danh sách ID (1 request thay cho N), kiểm tra phân quyền role–application khi tạo/cập nhật user; sửa lỗi export/import package giữa các cluster." : "Shipped API features: typed sorting (5 fields), batch fetch by ID list (1 request instead of N), and role-to-application authorization checks on user writes; fixed cross-cluster package export/import.",
+            isVi ? "Chẩn đoán và xử lý dữ liệu sai trên production sau các đợt migrate schema: truy vết 169/363.515 bản ghi hỏng bằng SQL, khôi phục dữ liệu cho các tổ chức bị ảnh hưởng và đề xuất thiết kế migration an toàn hơn." : "Diagnosed and fixed corrupted production data after schema migrations: traced 169 of 363,515 records via SQL, restored affected organizations' data, and drove a safer migration design.",
+            isVi ? "Bảo mật & CI: xử lý toàn bộ CVE container mức Critical/High về 0 (Trivy) và gỡ tắc CI bằng cách refactor integration test." : "Security & CI: cleared all Critical/High container CVEs to zero Trivy findings and unblocked CI by refactoring integration tests."
           ],
-          technologies: "Node.js · GraphQL · GraphQL Yoga · Fastify · PostgreSQL · SQL · Docker · Kubernetes · Helm · Argo CD · CI/CD · RBAC · Object-level Authorization · Data Migrations"
+          technologies: "Node.js · GraphQL · GraphQL Yoga · Fastify · PostgreSQL · Docker · Kubernetes · Helm · Argo CD · Trivy"
         },
         {
           name: "Edu Vengy",
