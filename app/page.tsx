@@ -34,8 +34,8 @@ export default function Home() {
         <Skills />
         <LearningMindmap />
         <div id="experience"><Experience /></div>
-        <Education />
         <PersonalProjects />
+        <Education />
       </div>
 
       <footer className="py-8 text-center text-muted-foreground text-sm">
