@@ -27,13 +27,17 @@ export const getExperiencesData = (locale: string): Experience[] => {
       projects: [
         {
           name: "Zalo Personal Connector",
-          description: isVi ? "Dịch vụ mới, đã phát hành" : "New service, released",
+          description: isVi
+            ? "Service mới, đã release · Tự thiết kế và xây dựng một mình trong ~1 tuần. Communi trước đó chỉ hỗ trợ Zalo OA, trong khi chỉ tài khoản Zalo cá nhân mới nhận được tin nhắn từ nhóm."
+            : "New service, released · Designed and built solo in ~1 week. Communi previously supported only Zalo Official Accounts, but only personal Zalo accounts receive group messages.",
           achievements: [
-            "Built and released a ~12,500-line NestJS/Prisma/MySQL service with 59 tests: QR account linking over SSE, 1:1 and group messaging.",
-            "Added outbox-based webhook delivery, MySQL leader locking, graceful shutdown and SSRF protection; shipped CI and Kubernetes deployment.",
-            "Wrote the matching ~3,700-line Go plugin in omni-bridge with webhook verification and temporary/permanent error classification.",
+            isVi ? "Kiến trúc: service mới duy trì kết nối WebSocket liên tục tới từng tài khoản Zalo đã liên kết; là service NestJS duy nhất trong hệ microservice toàn Go, chọn NestJS để dùng thư viện zca-js." : "Architecture: a new service that keeps a persistent WebSocket connection to every linked Zalo account; the only NestJS service in an otherwise all-Go microservice platform, chosen to use the zca-js library.",
+            isVi ? "Thách thức: Zalo không có API chính thức cho tài khoản cá nhân, nên tôi xây dựng trên thư viện không chính thức zca-js." : "Challenge: Zalo offers no official API for personal accounts, so I built on the unofficial zca-js library.",
+            isVi ? "Tính năng: liên kết tài khoản bằng QR qua SSE, nhắn tin 1:1 và nhóm." : "Features: QR-code account linking over SSE, plus 1:1 and group messaging.",
+            isVi ? "Độ tin cậy & bảo mật: gửi webhook theo outbox pattern, MySQL leader locking, graceful shutdown, chống SSRF; ~12.500 dòng code với 59 test, CI và deploy lên Kubernetes." : "Reliability & security: outbox-based webhook delivery, MySQL leader locking, graceful shutdown and SSRF protection; ~12,500 lines with 59 tests, CI and Kubernetes deployment.",
+            isVi ? "Tích hợp: plugin Go ~3.700 dòng trong omni-bridge với xác minh webhook, gửi tin đồng bộ, phân loại lỗi tạm thời/vĩnh viễn và API liên kết QR." : "Integration: a ~3,700-line Go plugin in omni-bridge with webhook verification, synchronous delivery, temporary/permanent error classification and QR-linking APIs."
           ],
-          technologies: "NestJS · Prisma · MySQL · Go · Kubernetes",
+          technologies: "NestJS · TypeScript · zca-js · WebSocket · SSE · Prisma · MySQL · Go · Kubernetes",
         },
         {
           name: "Integration & E2E testing",
