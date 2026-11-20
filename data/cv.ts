@@ -32,7 +32,7 @@ export const cv = {
   summary:
     "Software engineer with 2+ years in backend engineering, distributed systems and platform integration. I build Go and Node.js services, messaging integrations and the infrastructure that runs them, and I have spent much of my time on production work: incident root-causing, security remediation, migrations and observability.",
   skills: [
-    { group: "Languages", items: "Go, TypeScript, JavaScript, SQL" },
+    { group: "Languages", items: "Go, TypeScript, JavaScript, Python, SQL" },
     { group: "Backend", items: "Node.js, NestJS, Fastify, REST, GraphQL, gRPC, Prisma" },
     { group: "Distributed", items: "Microservices, event-driven architecture, Kafka, webhooks, outbox, DLQ" },
     { group: "Data", items: "PostgreSQL, MySQL/TiDB, Redis, ScyllaDB" },
@@ -112,11 +112,15 @@ export const cv = {
         },
         {
           name: "EMS",
-          context: "Enterprise HR platform, built end to end",
+          context: "SETA's internal platform centralizing employee, project and contract data for ~200 users · Sep – Dec 2025",
           bullets: [
+            "Core backend engineer in a ~5-person team; built the platform from the ground up with FastAPI, PostgreSQL and a React/TypeScript frontend.",
             "Designed IAM with project-based RBAC, JWT backed by database sessions, and Microsoft OAuth/SSO.",
             "Delivered employee lifecycle and Draft Profile approval workflows, webhook APIs, MinIO storage, Microsoft Teams integration and AI resume processing.",
+            "Built a Kafka-based change data capture (CDC) pipeline and lightweight Go services for notifications and scheduled jobs such as contract updates.",
+            "Took over DevOps after the team's DevOps engineer left: Kubernetes deployments, Staging/Non-prod environments and CI/CD.",
           ],
+          stack: "Python, FastAPI, Go, PostgreSQL, Kafka, Kubernetes, React, TypeScript, MinIO",
         },
       ],
     },
@@ -163,7 +167,7 @@ export const cv = {
   education: [
     {
       school: "VNU University of Engineering and Technology",
-      detail: "B.Sc. Computer Science, VNU Hanoi",
+      detail: "B.Sc. Computer Science",
       period: "Oct 2022 – Dec 2026 (thesis defense)",
     },
   ],

@@ -37,8 +37,8 @@
   background: var(--paper);
   padding: 14mm 15mm;
   box-shadow: 0 1px 3px rgba(0, 0, 0, .08), 0 8px 24px rgba(0, 0, 0, .06);
-  font-size: 9.6pt;
-  line-height: 1.45;
+  font-size: 9.3pt;
+  line-height: 1.4;
 }
 
 .header {
@@ -73,7 +73,7 @@
 
 .summary { margin-top: 10px; color: var(--ink); }
 
-.section { margin-top: 13px; }
+.section { margin-top: 11px; }
 .sectionTitle {
   font-family: var(--font-geist-mono), ui-monospace, monospace;
   font-size: 8pt;
@@ -135,7 +135,7 @@
   .jobHead { flex-direction: column; gap: 0; }
 }
 
-@page { size: A4; margin: 11mm 0; }
+@page { size: A4; margin: 8mm 0; }
 @media print {
   :global(html), :global(body) { background: #fff !important; }
   .screen { background: #fff; padding: 0; min-height: 0; }

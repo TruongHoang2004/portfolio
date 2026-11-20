@@ -46,6 +46,27 @@ export default function CvPage() {
           </dl>
         </section>
 
+        <section className={`${styles.section} ${styles.twoCol}`}>
+          <div>
+            <h2 className={styles.sectionTitle}>Education</h2>
+            {cv.education.map((e) => (
+              <div key={e.school} className={styles.entry}>
+                <strong>{e.school}</strong>
+                <span>{e.detail} · {e.period}</span>
+              </div>
+            ))}
+          </div>
+          <div>
+            <h2 className={styles.sectionTitle}>Certifications</h2>
+            {cv.certifications.map((c) => (
+              <div key={c.name} className={styles.entry}>
+                <strong>{c.name}</strong>
+                <span>{c.detail} · {c.period}</span>
+              </div>
+            ))}
+          </div>
+        </section>
+
         <section className={styles.section}>
           <h2 className={styles.sectionTitle}>Experience</h2>
           {cv.experience.map((job) => (
@@ -74,26 +95,6 @@ export default function CvPage() {
           ))}
         </section>
 
-        <section className={`${styles.section} ${styles.twoCol}`}>
-          <div>
-            <h2 className={styles.sectionTitle}>Education</h2>
-            {cv.education.map((e) => (
-              <div key={e.school} className={styles.entry}>
-                <strong>{e.school}</strong>
-                <span>{e.detail} · {e.period}</span>
-              </div>
-            ))}
-          </div>
-          <div>
-            <h2 className={styles.sectionTitle}>Certifications</h2>
-            {cv.certifications.map((c) => (
-              <div key={c.name} className={styles.entry}>
-                <strong>{c.name}</strong>
-                <span>{c.detail} · {c.period}</span>
-              </div>
-            ))}
-          </div>
-        </section>
       </article>
     </div>
   );

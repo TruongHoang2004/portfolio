@@ -100,15 +100,18 @@ export const getExperiencesData = (locale: string): Experience[] => {
         },
         {
           name: "EMS (Employee Management System)",
-          description: isVi ? "Nền tảng Quản lý Nguồn nhân lực & Nhân sự Doanh nghiệp" : "Enterprise HR & Resource Management Platform",
+          description: isVi
+            ? "Hệ thống nội bộ của SETA quản lý tập trung dữ liệu nhân sự, dự án và hợp đồng cho ~200 người dùng · Tháng 9 – Tháng 12 2025"
+            : "SETA's internal platform centralizing employee, project and contract data for ~200 users · Sep – Dec 2025",
           achievements: [
-            isVi ? "Xây dựng nền tảng EMS từ đầu, phát triển các tính năng end-to-end trên toàn bộ hệ thống." : "Built the EMS platform from the ground up, developing end-to-end features across the backend, frontend, authentication, authorization, and deployment configuration.",
-            isVi ? "Thiết kế và triển khai hệ thống IAM, bao gồm RBAC dựa trên dự án và xác thực JWT." : "Designed and implemented the IAM system, including project-based RBAC, JWT authentication with database-backed sessions, and Microsoft OAuth/SSO.",
-            isVi ? "Xây dựng quy trình nhân sự cốt lõi và tích hợp, bao gồm quản lý vòng đời nhân viên và xử lý hồ sơ bằng AI." : "Built core HR workflows and integrations, including employee lifecycle management, Draft Profile approval, webhook APIs, MinIO document storage, Microsoft Teams integration, and AI-powered resume processing.",
-            isVi ? "Phát triển ứng dụng frontend với quản lý hồ sơ nhân viên, tìm kiếm nâng cao, xuất/nhập PDF CV." : "Developed the frontend application with employee profile management, advanced search/filtering, project-aware navigation, PDF CV import/export, image cropping, i18n, and Dark Mode.",
-            isVi ? "Thiết lập môi trường Staging/Non-prod và cấu hình CI/CD." : "Set up Staging/Non-prod environments, configuring service boundaries, environment variables, encryption keys, MinIO storage, and CI/CD deployment configurations."
+            isVi ? "Core backend trong team ~5 người; xây dựng nền tảng từ đầu với FastAPI, PostgreSQL và frontend React/TypeScript." : "Core backend engineer in a ~5-person team; built the platform from the ground up with FastAPI, PostgreSQL and a React/TypeScript frontend.",
+            isVi ? "Thiết kế hệ thống IAM: RBAC theo dự án, JWT với session lưu trong database, đăng nhập Microsoft OAuth/SSO." : "Designed IAM with project-based RBAC, JWT backed by database sessions, and Microsoft OAuth/SSO.",
+            isVi ? "Xây dựng các quy trình nhân sự: vòng đời nhân viên, duyệt Draft Profile, webhook API, lưu trữ MinIO, tích hợp Microsoft Teams và xử lý CV bằng AI." : "Delivered employee lifecycle and Draft Profile approval workflows, webhook APIs, MinIO storage, Microsoft Teams integration and AI resume processing.",
+            isVi ? "Xây dựng pipeline CDC (change data capture) trên Kafka và các service Go gọn nhẹ cho thông báo và job định kỳ như cập nhật hợp đồng." : "Built a Kafka-based change data capture (CDC) pipeline and lightweight Go services for notifications and scheduled jobs such as contract updates.",
+            isVi ? "Đảm nhận DevOps sau khi DevOps của team rời đi: triển khai Kubernetes, môi trường Staging/Non-prod và CI/CD." : "Took over DevOps after the team's DevOps engineer left: Kubernetes deployments, Staging/Non-prod environments and CI/CD.",
+            isVi ? "Phát triển frontend quản lý hồ sơ nhân viên, tìm kiếm và lọc nâng cao, nhập/xuất CV dạng PDF, đa ngôn ngữ và Dark Mode." : "Developed the frontend for employee profiles, advanced search and filtering, PDF CV import/export, i18n and Dark Mode."
           ],
-          technologies: "TypeScript · React · Backend APIs · MinIO · Microsoft OAuth · JWT · Git · CI/CD"
+          technologies: "Python · FastAPI · Go · PostgreSQL · Kafka · Kubernetes · React · TypeScript · MinIO · Microsoft OAuth"
         }
       ]
     },
