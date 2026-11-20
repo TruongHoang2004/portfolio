@@ -7,41 +7,45 @@ export type PersonalProject = {
   url?: string;
 };
 
+export const HEXTA_URL = "https://hexta.org/";
+
+// The three applications of Hexta, a platform I'm building to help small and medium
+// businesses sell and market online.
 export const personalProjects: PersonalProject[] = [
   {
-    name: "PostPilot",
-    category: "Personal project · Deployed, evolving",
-    description: "A social publishing workspace with a Go backend and Next.js studio, currently focused on Facebook Pages.",
+    name: "Hexta Desktop",
+    category: "Hexta · Unified inbox & orders",
+    description: "Brings customer messages from many channels (Facebook Page, Telegram bot, Zalo and more) into one inbox, alongside order management, so a small team can sell from a single place.",
     highlights: [
+      "Aggregate conversations from Facebook Page, Telegram and Zalo into one multi-tenant inbox.",
+      "Manage orders next to the conversations they come from.",
+      "Go/Gin services with GORM and PostgreSQL in a shared monorepo, with event-driven infrastructure on Kafka.",
+    ],
+    technologies: "Go · Gin · GORM · Next.js · PostgreSQL · Redis · Kafka · Docker",
+    url: "https://github.com/TruongHoang2004/Hexta",
+  },
+  {
+    name: "PostPilot",
+    category: "Hexta · Facebook Page management · Deployed",
+    description: "Manages Facebook Pages and publishes posts automatically, with AI-assisted content generation.",
+    highlights: [
+      "Schedule and auto-publish posts to Facebook Pages through the Meta Graph API.",
       "Separate publishing rules from platform integrations using DDD and hexagonal architecture.",
-      "Combine PostgreSQL persistence, Redis-backed workers, media storage, and AI-assisted content generation.",
-      "Deployed and confirmed Facebook posting; continuing to improve token validation, publishing reliability, and the Meta app release workflow.",
+      "PostgreSQL persistence, Redis-backed workers and media storage; deployed with confirmed Facebook posting.",
     ],
     technologies: "Go · Next.js · PostgreSQL · Redis · Docker · Meta Graph API",
     url: "https://github.com/TruongHoang2004/PostPilot",
   },
   {
     name: "ViralForge",
-    category: "Personal project · Local-first development",
-    description: "An AI video workspace that turns a brief or uploaded media into analysis, scripts, narration, captioned video, and exportable artifacts.",
+    category: "Hexta · AI ad content",
+    description: "Collects content that is going viral, then helps businesses turn it into their own ad content (video, images and copy) with AI.",
     highlights: [
-      "Connect a Go API, Python workers, and a React dashboard through persisted jobs and asynchronous messaging.",
-      "Explore transactional outbox, duplicate-safe claims, leases, cancellation, and trace propagation across job boundaries.",
-      "Integrate LiteLLM, typed output validation, YAML configuration, and FFmpeg; live provider acceptance remains a separate validation step.",
+      "Gather trending content as input for new ad ideas.",
+      "Generate scripts, narration, captioned video, images and copy with LLMs (LiteLLM) and FFmpeg.",
+      "Go API, Python workers and a React dashboard connected through persisted jobs and asynchronous messaging (RabbitMQ, gRPC).",
     ],
     technologies: "Go · Python · React · PostgreSQL · RabbitMQ · gRPC · LiteLLM · FFmpeg",
     url: "https://github.com/TruongHoang2004/ViralForge",
-  },
-  {
-    name: "Hexta",
-    category: "Personal project · In development",
-    description: "A multi-tenant commerce platform used to explore Go services, shared infrastructure, and multiple Next.js applications.",
-    highlights: [
-      "Organize storefront, administration, documentation, and landing applications in a shared monorepo.",
-      "Work with Go/Gin, GORM, PostgreSQL, tenant management, and containerized local development.",
-      "Explore event-driven infrastructure and search as part of the platform architecture.",
-    ],
-    technologies: "Go · Gin · GORM · Next.js · PostgreSQL · Redis · Kafka · Docker",
-    url: "https://github.com/TruongHoang2004/Hexta",
   },
 ];

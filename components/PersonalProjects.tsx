@@ -1,5 +1,5 @@
 import { ArrowUpRight, Code2 } from "lucide-react";
-import { personalProjects } from "@/data/projects";
+import { HEXTA_URL, personalProjects } from "@/data/projects";
 
 export function PersonalProjects() {
   return (
@@ -8,8 +8,8 @@ export function PersonalProjects() {
         <Code2 className="w-7 h-7 text-accent" aria-hidden="true" />
         <h2 id="projects-title" className="text-3xl font-bold tracking-tight">Selected Work</h2>
       </div>
-      <p className="text-muted-foreground mb-8 max-w-2xl">Products I’m building and engineering problems I’m working on. Each is a place to put ideas into practice.</p>
-      <div className="grid md:grid-cols-2 gap-5">
+      <p className="text-muted-foreground mb-8 max-w-2xl">Three applications of <a href={HEXTA_URL} target="_blank" rel="noreferrer" className="font-semibold text-accent underline underline-offset-4">Hexta</a>, a platform I’m building to help small and medium businesses sell and market online: one inbox for customer messages and orders, Facebook Page publishing, and AI-made ad content.</p>
+      <div className="grid md:grid-cols-3 gap-5">
         {personalProjects.map((project) => (
           <article key={project.name} className="rounded-2xl border border-border bg-background p-6 shadow-sm flex flex-col">
             <p className="text-xs font-medium text-accent mb-3">{project.category}</p>
