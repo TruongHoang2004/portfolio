@@ -22,7 +22,7 @@ export type CvRole = {
 
 export const cv = {
   name: "Hoàng Xuân Trường",
-  title: "Backend Engineer · Go, Distributed Systems & Platform Integration",
+  title: "Backend Engineer · Go, Distributed Systems & DevOps",
   contact: {
     email: "xuantruong.tn.1712@gmail.com",
     phone: "0353 227 709",
@@ -30,54 +30,33 @@ export const cv = {
     github: "github.com/TruongHoang2004",
   },
   summary:
-    "Software engineer with 2+ years in backend engineering, distributed systems and platform integration. I build Go and Node.js services, messaging integrations and the infrastructure that runs them, and I have spent much of my time on production work: incident root-causing, security remediation, migrations and observability.",
+    "Backend engineer with 2+ years building Go, Node.js and Python services, messaging integrations and the infrastructure that runs them. I have shipped services solo, rebuilt CI/CD and GitOps for 20+ services on AWS, and spent much of my time on production work: data incidents, security remediation, migrations and observability. Currently building Hexta, a platform for small businesses.",
   skills: [
     { group: "Languages", items: "Go, TypeScript, JavaScript, Python, SQL" },
-    { group: "Backend", items: "Node.js, NestJS, Fastify, REST, GraphQL, gRPC, Prisma" },
+    { group: "Backend", items: "NestJS, FastAPI, Fiber, Fastify, REST, GraphQL, gRPC, Prisma, sqlc" },
     { group: "Distributed", items: "Microservices, event-driven architecture, Kafka, webhooks, outbox, DLQ" },
     { group: "Data", items: "PostgreSQL, MySQL/TiDB, Redis, ScyllaDB" },
     { group: "Infrastructure", items: "Docker, Kubernetes, Helm, Argo CD, AWS (EC2, S3, IAM)" },
-    { group: "CI/CD", items: "GitLab CI/CD, GitHub Actions, Jenkins" },
+    { group: "CI/CD & IaC", items: "Jenkins, GitHub Actions, GitLab CI, Terraform, AWS Lambda, Amazon ECR" },
     { group: "Observability", items: "Prometheus, Grafana, Loki, Promtail, Jaeger" },
-    { group: "AI-assisted", items: "RAG, MCP, agentic workflows, Claude Code, Agent Skills" },
+    { group: "AI", items: "RAG, LiteLLM, MCP, agentic workflows, Claude Code" },
   ],
   experience: [
     {
       company: "PiScale",
-      role: "Backend Engineer (Collaborator)",
+      role: "Backend Developer (Collaborator)",
       period: "Oct 2026 – Present",
-      summary:
-        "Communi: an omnichannel customer-engagement platform of ~36 microservices that brings messaging and commerce channels into one workspace for CS agents, chatbots and AI workflows (SaaS and on-premise).",
       projects: [
         {
-          name: "Zalo Personal Connector",
-          status: "Released",
+          name: "Communi",
+          context: "Omnichannel customer-engagement platform, ~36 microservices",
           bullets: [
-            "Built and released a new ~12,500-line NestJS/Prisma/MySQL service end to end, covered by 59 tests: QR account linking over SSE, 1:1 and group messaging.",
-            "Made delivery reliable with outbox-based webhooks, MySQL leader locking and graceful shutdown; added SSRF protection; shipped CI and Kubernetes deployment.",
-            "Wrote the matching ~3,700-line Go plugin in omni-bridge: webhook verification, synchronous delivery, temporary/permanent error classification and QR-linking APIs.",
+            "Zalo personal accounts: built solo in ~1 week a new service that lets support agents chat through personal Zalo accounts, the only way to receive group messages. With no official API, I used the unofficial zca-js library in NestJS, the platform's only non-Go service.",
+            "Telegram groups: brought group chats into the agents' inbox as one conversation per group, filtered bot messages out through new routing, and handled group ID upgrades and bot-token leaks in logs.",
+            "Testing: added the first automated integration and E2E suite for the channel-messaging service (~9,400 lines, 10 platforms) using fake platform servers, running in parallel in CI.",
+            "Ticket service: designed and built a new Go service (Fiber, sqlc, MySQL) with an explicit lifecycle state machine, SLAs that pause on hold and compute overdue in SQL instead of cron, optimistic locking, and a pure policy layer with external systems behind ports.",
           ],
-        },
-        {
-          name: "Integration & E2E test platform",
-          bullets: [
-            "Built ~9,400 lines of black-box tests across 10 messaging platforms, using containerized environments and fake platform servers.",
-            "Added parallel execution, YAML-driven scenarios and GitLab CI with JUnit and coverage reports.",
-          ],
-        },
-        {
-          name: "Telegram group conversations",
-          bullets: [
-            "Brought Telegram groups into Communi Desk across 2 services: groups map to CS threads, sender identity shows both ways, and only agent replies go out.",
-            "Handled group migration and media without thumbnails, and removed bot tokens leaking into logs.",
-          ],
-        },
-        {
-          name: "Ticket Service",
-          status: "Design phase",
-          bullets: [
-            "Designed a standalone Ticket Service: ~30 REST endpoints, 7 tables, a 5-state lifecycle, priority-based SLA, optimistic locking, 6-role RBAC, expiring attachment URLs, Kafka notifications.",
-          ],
+          stack: "Go, Fiber, sqlc, NestJS, TypeScript, MySQL, Kafka, Redis, Kubernetes, GitLab CI",
         },
       ],
     },
@@ -87,39 +66,51 @@ export const cv = {
       period: "Sep 2025 – Oct 2026",
       projects: [
         {
-          name: "Veritone aiWARE",
-          context: "Distributed AI processing, workflow automation and core platform services on cloud and Kubernetes edge clusters",
+          name: "Veritone aiWARE Processing",
+          context: "Distributed AI processing on Kubernetes edge clusters · Apr – Oct 2026 · shadow engineer, 2 VN + 3 client engineers",
           bullets: [
-            "Designed immutable, commit-based Docker image versioning across 7+ repos and 3 release channels, spanning CI/CD, Helm, GitOps, the Go control plane and GraphQL.",
-            "Remediated 22 Critical and 55 High container CVEs plus 8 dependency vulnerabilities, and defined a standard non-root container pattern.",
-            "Root-caused a high-priority outage after a schema migration: 169 corrupted records (151 root folders) out of 363,515, found via SQL analysis; drove the preventive migration design.",
-            "Migrated the public GraphQL API from Apollo/Express to GraphQL Yoga + Envelop on Fastify and GraphQL v16 with no test regressions.",
-            "Upgraded the Node-RED workflow runtime from v3 to v4.1.8+, validating plugin, expression and parsing compatibility.",
-            "Added a typed sorting API (5 fields), batch retrieval by ID list, and role-to-application authorization checks; exposed build metadata via Prometheus.",
+            "Release engineering: immutable, commit-based image versioning across 7+ repos and 3 release channels (CI/CD, Helm, GitOps); build metadata in Prometheus so QA can verify deployed versions.",
+            "Security: remediated 22 Critical and 55 High container CVEs plus 8 dependency vulnerabilities, standardized non-root containers, and scoped a critical SQL injection fix.",
+            "Platform upgrades: Node-RED runtime v3 → v4.1.8+; fixed a frontend migration regression across 15 admin pages and Node.js CI failures.",
           ],
           stack: "Go, Node.js, GraphQL, PostgreSQL, Kubernetes, Helm, Argo CD, Jenkins, Prometheus",
         },
         {
-          name: "Edu Vengy",
-          context: "AI-powered e-learning platform, founding engineer",
+          name: "Sunwest",
+          context: "DevOps for a Veritone client · Jul – Sep 2026 · team of 2",
           bullets: [
-            "Provisioned the initial infrastructure and a GitHub Actions pipeline (lint, tests, Docker, auto-deploy to Dev).",
-            "Designed PostgreSQL backup and DR (full backups, WAL archiving, alerting) targeting RPO < 1 h and RTO < 30 min; migrated storage from MinIO to AWS S3.",
-            "Built permission-gated audit logs and reusable learning-material embedding with server-side validation.",
+            "Rebuilt delivery from scratch for ~20 services on AWS as the client moved from GitLab to GitHub: a Jenkins shared library (tests, security scans, Docker builds to Amazon ECR) and GitOps with Helm and Argo CD.",
+            "Kept Jenkins reachable only from internal IPs while still accepting GitHub webhooks, through an AWS Lambda relay provisioned with Terraform.",
           ],
-          stack: "TypeScript, React, Node.js, PostgreSQL, AWS S3, Docker",
+          stack: "Jenkins, Helm, Argo CD, Kubernetes, AWS Lambda, Amazon ECR, Terraform",
+        },
+        {
+          name: "Edu Vengy",
+          context: "AI e-learning platform for the client Vengy · May – Jul 2026 · team of 6, core backend and CI/CD",
+          bullets: [
+            "Wrote the infrastructure and cost proposal, provisioned AWS with Nginx, and built GitHub Actions CI/CD (auto-deploy to Dev, approval-gated Prod).",
+            "Implemented daily PostgreSQL backups to S3 with WAL archiving for point-in-time recovery, verified by a real restore; migrated files from MinIO to S3.",
+            "Built JWT auth with roles and cross-system login via the client's lab app API, an extensible quiz engine, audit logs, the Media module, and a Python RAG service for course Q&A.",
+          ],
+          stack: "NestJS, Prisma, PostgreSQL, Python, AWS (EC2, S3), Docker, GitHub Actions",
+        },
+        {
+          name: "Veritone aiWARE Core",
+          context: "Core GraphQL API · Jan – Mar 2026 · shadow engineer in a ~6-person VN team",
+          bullets: [
+            "Migrated the public GraphQL API from Apollo/Express to GraphQL Yoga + Envelop on Fastify (GraphQL v16) with zero regressions; shipped typed sorting, batch fetch and authorization checks.",
+            "Diagnosed and fixed corrupted production data after schema migrations (169 of 363,515 records) and drove a safer migration design; cleared all Critical/High CVEs.",
+          ],
+          stack: "Node.js, GraphQL Yoga, Fastify, PostgreSQL, Kubernetes, Trivy",
         },
         {
           name: "EMS",
-          context: "SETA's internal platform centralizing employee, project and contract data for ~200 users · Sep – Dec 2025",
+          context: "SETA's internal HR platform for ~200 users · Sep – Dec 2025 · core backend in a ~5-person team",
           bullets: [
-            "Core backend engineer in a ~5-person team; built the platform from the ground up with FastAPI, PostgreSQL and a React/TypeScript frontend.",
-            "Designed IAM with project-based RBAC, JWT backed by database sessions, and Microsoft OAuth/SSO.",
-            "Delivered employee lifecycle and Draft Profile approval workflows, webhook APIs, MinIO storage, Microsoft Teams integration and AI resume processing.",
-            "Built a Kafka-based change data capture (CDC) pipeline and lightweight Go services for notifications and scheduled jobs such as contract updates.",
-            "Took over DevOps after the team's DevOps engineer left: Kubernetes deployments, Staging/Non-prod environments and CI/CD.",
+            "Built the platform from the ground up with FastAPI and PostgreSQL: project-based RBAC, JWT with database sessions, Microsoft SSO, and HR workflows.",
+            "Built a Kafka-based CDC pipeline and lightweight Go services for notifications and scheduled contract jobs; took over DevOps (Kubernetes, CI/CD) after the DevOps engineer left.",
           ],
-          stack: "Python, FastAPI, Go, PostgreSQL, Kafka, Kubernetes, React, TypeScript, MinIO",
+          stack: "Python, FastAPI, Go, PostgreSQL, Kafka, Kubernetes, React",
         },
       ],
     },
@@ -127,14 +118,13 @@ export const cv = {
       company: "Tiên Phong Telecom Ecommerce",
       role: "Tech Lead & Backend Engineer (Freelance)",
       period: "Mar 2025 – Aug 2025",
-      summary: "Short-term freelance project with a 3-person team (designer, frontend, me on backend and DevOps). I led technical decisions, worked directly with the client, and shipped the platform to production with real customers.",
+      summary: "3-person team; I led technical decisions, worked directly with the client, and shipped to production with real customers.",
       projects: [
         {
           name: "E-commerce platform",
           bullets: [
-            "Defined the backend structure, REST API contracts and database schema, coordinating with the frontend developer.",
-            "Built cart, checkout, transaction handling and order filtering with NestJS and TypeORM; synced products from Strapi to PostgreSQL via webhooks.",
-            "Implemented JWT, RBAC, user profiles and multi-address APIs; containerized the stack with Docker and set up GitHub Actions CI.",
+            "Defined the backend structure, REST contracts and database schema; built cart, checkout, transactions and order filtering with NestJS and TypeORM.",
+            "Synced products from Strapi to PostgreSQL via webhooks; implemented JWT and RBAC; containerized with Docker and GitHub Actions CI.",
           ],
           stack: "NestJS, TypeScript, PostgreSQL, TypeORM, Strapi, Docker",
         },
@@ -144,25 +134,29 @@ export const cv = {
       company: "National Cyber Security Center of Vietnam",
       role: "Fullstack Developer Intern",
       period: "Sep 2024 – Jun 2025",
-      summary: "Fullstack developer in a 5-person intern team that took on and delivered small web projects, focused mainly on backend and DevOps.",
+      summary: "5-person intern team delivering small web projects; I focused on backend and DevOps.",
       projects: [
         {
-          name: "Affiliate e-commerce site",
+          name: "Affiliate store & news site rebuild",
           bullets: [
-            "Built the backend APIs for a simple online store run by an affiliate partner, using NestJS with a Next.js frontend.",
+            "Built NestJS backends for an affiliate online store and a rebuilt news site, and wrote a Go CLI that migrated the news content from the old system.",
+            "Deployed both sites with Docker behind an Nginx reverse proxy.",
           ],
-        },
-        {
-          name: "Online news site rebuild",
-          bullets: [
-            "Rebuilt an existing news website end to end with the team (new frontend and backend); I built the backend and wrote a Go CLI that migrated content from the old system to the new one.",
-            "Deployed both sites to the internet with Docker and an Nginx reverse proxy.",
-          ],
-          stack: "NestJS, Next.js, Docker, Nginx, Go",
+          stack: "NestJS, Next.js, Go, Docker, Nginx",
         },
       ],
     },
   ] satisfies CvRole[],
+  hexta: {
+    name: "Hexta",
+    url: "hexta.org",
+    tagline: "A platform I'm building to help small and medium businesses sell and market online.",
+    apps: [
+      { name: "Hexta Desktop", detail: "One inbox for messages from Facebook Page, Telegram and Zalo, with order management.", stack: "Go, Gin, PostgreSQL, Kafka, Next.js" },
+      { name: "PostPilot", detail: "Facebook Page management with automatic publishing; deployed. DDD and hexagonal architecture.", stack: "Go, Next.js, PostgreSQL, Redis, Meta Graph API" },
+      { name: "ViralForge", detail: "Turns viral content into AI-made ad video, images and copy through async job pipelines.", stack: "Go, Python, React, RabbitMQ, gRPC, LiteLLM, FFmpeg" },
+    ],
+  },
   education: [
     {
       school: "VNU University of Engineering and Technology",

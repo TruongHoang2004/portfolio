@@ -83,7 +83,6 @@ export default function CvPage() {
                   <h4>
                     {p.name}
                     {"context" in p && p.context && <span className={styles.context}> — {p.context}</span>}
-                    {"status" in p && p.status && <span className={styles.status}>{p.status}</span>}
                   </h4>
                   <ul>
                     {p.bullets.map((b) => <li key={b}>{b}</li>)}
@@ -95,6 +94,22 @@ export default function CvPage() {
           ))}
         </section>
 
+        <section className={styles.section}>
+          <h2 className={styles.sectionTitle}>Projects</h2>
+          <div className={styles.project}>
+            <h4>
+              {cv.hexta.name} <span className={styles.context}>— {cv.hexta.tagline}</span>{" "}
+              <a className={styles.status} href={`https://${cv.hexta.url}`}>{cv.hexta.url}</a>
+            </h4>
+            <ul>
+              {cv.hexta.apps.map((app) => (
+                <li key={app.name}>
+                  <strong>{app.name}:</strong> {app.detail} <span className={styles.stack}>({app.stack})</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
       </article>
     </div>
   );

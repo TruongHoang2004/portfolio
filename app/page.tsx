@@ -4,7 +4,6 @@ import { Experience } from "@/components/Experience";
 import { Education } from "@/components/Education";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { PersonalProjects } from "@/components/PersonalProjects";
-import { LearningMindmap } from "@/components/LearningMindmap";
 import { Download } from "lucide-react";
 import { CV_PDF_PATH } from "@/data/cv";
 
@@ -20,7 +19,6 @@ export default function Home() {
           <a href="#" className="font-mono text-xs tracking-widest font-semibold">TRƯỜNG / ENGINEERING</a>
           <nav aria-label="Main navigation" className="flex items-center gap-6 text-xs text-muted-foreground">
             <a href="#projects" className="hover:text-accent">Projects</a>
-            <a href="#learning" className="hover:text-accent">Learning</a>
             <a href="#experience" className="hover:text-accent">Experience</a>
             <a href="/cv" className="hover:text-accent">CV</a>
             <a href={CV_PDF_PATH} download className="inline-flex items-center gap-1.5 px-3 py-1.5 border border-accent text-accent rounded hover:bg-accent hover:text-accent-foreground transition-colors">
@@ -32,7 +30,6 @@ export default function Home() {
       <div>
         <Hero />
         <Skills />
-        <LearningMindmap />
         <div id="experience"><Experience /></div>
         <PersonalProjects />
         <Education />
