@@ -74,9 +74,10 @@ export const getExperiencesData = (locale: string): Experience[] => {
           achievements: [
             isVi ? "Xây dựng lại quy trình delivery từ đầu khi khách hàng chuyển toàn bộ repo từ GitLab sang GitHub, cho khoảng 20 service chạy hoàn toàn trên AWS." : "Rebuilt the delivery process from scratch for ~20 services running entirely on AWS, as the client moved all repositories from GitLab to GitHub.",
             isVi ? "CI với Jenkins: viết shared library dùng chung cho cả 20 service; pipeline chạy test, quét bảo mật, build Docker image và đẩy lên Amazon ECR." : "Jenkins CI: wrote a shared library reused across all ~20 services; pipelines run tests and security scans, build Docker images and push them to Amazon ECR.",
-            isVi ? "GitOps: thiết kế lại luồng triển khai từ đầu với Helm chart và Argo CD lên Kubernetes trên AWS." : "GitOps: designed the deployment flow from the ground up with Helm charts and Argo CD onto Kubernetes on AWS."
+            isVi ? "GitOps: thiết kế lại luồng triển khai từ đầu với Helm chart và Argo CD lên Kubernetes trên AWS." : "GitOps: designed the deployment flow from the ground up with Helm charts and Argo CD onto Kubernetes on AWS.",
+            isVi ? "Bảo mật Jenkins: giữ Jenkins chỉ truy cập được từ IP nội bộ nhưng vẫn nhận được webhook từ GitHub, bằng một service trung gian trên AWS Lambda (dựng bằng Terraform) nhận sự kiện từ GitHub và chuyển tiếp vào Jenkins trong mạng nội bộ." : "Jenkins security: kept Jenkins reachable only from internal IPs while still accepting GitHub webhooks, via an AWS Lambda relay provisioned with Terraform that receives GitHub events and forwards them to Jenkins inside the private network."
           ],
-          technologies: "Jenkins · Groovy Shared Library · Docker · Amazon ECR · Helm · Argo CD · Kubernetes · AWS · GitHub"
+          technologies: "Jenkins · Groovy Shared Library · Docker · Amazon ECR · Helm · Argo CD · Kubernetes · AWS Lambda · Terraform · GitHub"
         },
         {
           name: "Edu Vengy",
