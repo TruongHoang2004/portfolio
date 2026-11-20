@@ -48,24 +48,23 @@ export const getExperiencesData = (locale: string): Experience[] => {
     {
       company: "SETA International",
       role: isVi ? "Kỹ sư Phần mềm" : "Software Engineer",
-      period: isVi ? "Tháng 9 2025 – Tháng 10 2026" : "Sep 2025 – Oct 2026",
+      period: isVi ? "Tháng 9 2025 – Tháng 9 2026" : "Sep 2025 – Sep 2026",
       description: isVi 
         ? "Đóng góp vào nhiều dự án doanh nghiệp, bao gồm kỹ thuật nền tảng, phát triển full-stack và hạ tầng đám mây."
         : "Contributed to multiple enterprise projects, spanning platform engineering, full-stack development, and cloud infrastructure.",
       projects: [
         {
-          name: "Veritone (aiWARE Processing)",
-          description: isVi ? "Nền tảng Xử lý AI Phân tán & Tự động hóa Luồng công việc" : "Distributed AI Processing & Workflow Automation Platform",
+          name: "Veritone aiWARE Processing",
+          description: isVi
+            ? "Nền tảng xử lý AI phân tán và tự động hoá workflow, chạy trên cloud và các edge cluster Kubernetes · Tháng 4 – Tháng 9 2026"
+            : "Distributed AI processing and workflow automation platform running on cloud and Kubernetes edge clusters · Apr – Sep 2026",
           achievements: [
-            isVi ? "Nâng cấp runtime thực thi luồng công việc Node.js lên v4.1.8+, xác thực tính tương thích của plugin, biểu thức và phân tích cú pháp đồng thời khắc phục các lỗ hổng từ phiên bản trước." : "Upgraded the Node.js workflow execution runtime to v4.1.8+, validating plugin, expression, and parsing compatibility while addressing vulnerabilities inherited from the previous major version.",
-            isVi ? "Thiết kế và triển khai versioning Docker image bất biến dựa trên commit qua 7+ repo và 3 kênh release." : "Designed and implemented immutable, commit-based Docker image versioning across 7+ repositories and 3 release channels, integrating changes across CI/CD, Helm, GitOps, Go control-plane, and GraphQL workflows to ensure reproducible deployments and prevent stale runtime images.",
-            isVi ? "Cải thiện khả năng quan sát runtime bằng cách hiển thị siêu dữ liệu build thông qua Prometheus metrics." : "Improved runtime observability by exposing build metadata through Prometheus metrics, enabling QA, support, and engineering teams to verify deployed runtime versions without direct Kubernetes access.",
-            isVi ? "Xác định và phân tích một lỗ hổng SQL injection nghiêm trọng, truy vết đường dẫn tấn công và xác định phạm vi khắc phục." : "Identified and analyzed a critical SQL injection vulnerability, tracing the attack path from authenticated input to dynamically constructed SQL and defining the required remediation scope.",
-            isVi ? "Khắc phục 22 CVE bộ chứa mức độ Nghiêm trọng, 55 mức Cao và 8 lỗ hổng phụ thuộc." : "Remediated 22 Critical, 55 High severity container CVEs, and 8 dependency vulnerabilities, while defining a standardized non-root container pattern to improve platform security.",
-            isVi ? "Giải quyết hồi quy di chuyển framework frontend trên 15 trang quản trị và sửa các lỗi CI/CD." : "Resolved a frontend framework migration regression across 15 administration pages and fixed CI/CD failures caused by Node.js runtime and package-manager incompatibilities.",
-            isVi ? "Cải thiện chẩn đoán lỗi công việc phân tán bằng cách truyền lý do lỗi chính xác vào bản ghi tác vụ." : "Improved distributed job diagnostics and reliability by propagating accurate engine failure reasons into task records and investigating multi-hour job-status synchronization delays between edge clusters and the central API."
+            isVi ? "Release engineering: thiết kế versioning Docker image bất biến theo commit cho 7+ repo và 3 kênh release (CI/CD, Helm, GitOps); expose build metadata qua Prometheus để QA/support kiểm tra version đang chạy mà không cần truy cập cluster." : "Release engineering: designed immutable, commit-based image versioning across 7+ repos and 3 release channels (CI/CD, Helm, GitOps), and exposed build metadata via Prometheus so QA and support can verify deployed versions without cluster access.",
+            isVi ? "Bảo mật: xử lý 22 CVE Critical, 55 CVE High và 8 lỗ hổng dependency; chuẩn hoá container non-root; phân tích một lỗ hổng SQL injection nghiêm trọng và xác định phạm vi khắc phục." : "Security: remediated 22 Critical and 55 High container CVEs plus 8 dependency vulnerabilities, standardized non-root containers, and scoped the fix for a critical SQL injection.",
+            isVi ? "Nâng cấp nền tảng: nâng Node-RED workflow runtime từ v3 lên v4.1.8+; sửa regression sau migrate frontend trên 15 trang admin và lỗi CI do không tương thích Node.js/package manager." : "Platform upgrades: moved the Node-RED workflow runtime from v3 to v4.1.8+, and fixed a frontend migration regression across 15 admin pages plus Node.js/package-manager CI failures.",
+            isVi ? "Độ tin cậy: cải thiện chẩn đoán job phân tán bằng cách ghi đúng lý do lỗi của engine vào task, và điều tra độ trễ nhiều giờ khi đồng bộ trạng thái job giữa edge cluster và API trung tâm." : "Reliability: improved distributed job diagnostics by recording real engine failure reasons on tasks, and investigated multi-hour job-status sync delays between edge clusters and the central API."
           ],
-          technologies: "Go · Node.js · React · GraphQL · PostgreSQL · Docker · Kubernetes · Helm · Argo CD · Jenkins · Prometheus · GitOps"
+          technologies: "Go · Node.js · React · GraphQL · PostgreSQL · Docker · Kubernetes · Helm · Argo CD · Jenkins · Prometheus"
         },
         {
           name: "Veritone aiWARE Core",
