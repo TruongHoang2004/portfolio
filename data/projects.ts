@@ -30,7 +30,6 @@ export const personalProjects: PersonalProject[] = [
       "Go/Gin services with GORM and PostgreSQL in a shared monorepo, with event-driven infrastructure on Kafka.",
     ],
     technologies: "Go · Gin · GORM · Next.js · PostgreSQL · Redis · Kafka · Docker",
-    url: "https://github.com/TruongHoang2004/Hexta",
   },
   {
     name: "PostPilot",
@@ -42,7 +41,6 @@ export const personalProjects: PersonalProject[] = [
       "PostgreSQL persistence, Redis-backed workers and media storage; deployed with confirmed Facebook posting.",
     ],
     technologies: "Go · Next.js · PostgreSQL · Redis · Docker · Meta Graph API",
-    url: "https://github.com/TruongHoang2004/PostPilot",
   },
   {
     name: "ViralForge",
@@ -54,6 +52,5 @@ export const personalProjects: PersonalProject[] = [
       "Go API, Python workers and a React dashboard connected through persisted jobs and asynchronous messaging (RabbitMQ, gRPC).",
     ],
     technologies: "Go · Python · React · PostgreSQL · RabbitMQ · gRPC · LiteLLM · FFmpeg",
-    url: "https://github.com/TruongHoang2004/ViralForge",
   },
 ];
