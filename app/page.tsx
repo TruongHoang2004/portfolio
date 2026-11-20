@@ -19,7 +19,7 @@ export default function Home() {
         <div className="flex flex-wrap items-center justify-between gap-4 pb-5 border-b border-border">
           <a href="#" className="font-mono text-xs tracking-widest font-semibold">TRƯỜNG / ENGINEERING</a>
           <nav aria-label="Main navigation" className="flex items-center gap-6 text-xs text-muted-foreground">
-            <a href="#projects" className="hover:text-accent">Work</a>
+            <a href="#projects" className="hover:text-accent">Projects</a>
             <a href="#learning" className="hover:text-accent">Learning</a>
             <a href="#experience" className="hover:text-accent">Experience</a>
             <a href="/cv" className="hover:text-accent">CV</a>

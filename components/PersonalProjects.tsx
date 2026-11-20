@@ -6,7 +6,7 @@ export function PersonalProjects() {
     <section id="projects" aria-labelledby="projects-title" className="py-16 px-6 max-w-5xl mx-auto">
       <div className="flex items-center gap-3 mb-3">
         <Code2 className="w-7 h-7 text-accent" aria-hidden="true" />
-        <h2 id="projects-title" className="text-3xl font-bold tracking-tight">Selected Work</h2>
+        <h2 id="projects-title" className="text-3xl font-bold tracking-tight">Projects</h2>
       </div>
       <p className="text-muted-foreground mb-8 max-w-2xl">Three applications of <a href={HEXTA_URL} target="_blank" rel="noreferrer" className="font-semibold text-accent underline underline-offset-4">Hexta</a>, a platform I’m building to help small and medium businesses sell and market online: one inbox for customer messages and orders, Facebook Page publishing, and AI-made ad content.</p>
       <div className="grid md:grid-cols-3 gap-5">

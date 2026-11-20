@@ -17,7 +17,7 @@ export function Hero() {
             Lately, I’m building products around social publishing, commerce, and AI video workflows — and using them to ask better questions about architecture and testing.
           </p>
           <div className="flex flex-wrap gap-3 mt-7">
-            <a href="#projects" className="notebook-button">Explore my work <ArrowUpRight className="w-4 h-4" aria-hidden="true" /></a>
+            <a href="#projects" className="notebook-button">Explore my projects <ArrowUpRight className="w-4 h-4" aria-hidden="true" /></a>
             <a href={CV_PDF_PATH} download className="notebook-button notebook-button-secondary"><Download className="w-4 h-4" aria-hidden="true" />Download CV</a>
             <a href="#learning" className="notebook-button notebook-button-secondary">Open my learning notebook</a>
           </div>
