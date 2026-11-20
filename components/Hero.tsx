@@ -10,7 +10,7 @@ export function Hero() {
           <h1 className="notebook-headline">Thoughtful systems.<br />Practical engineering.</h1>
           <p className="text-lg mt-6 mb-3">I’m <strong className="font-semibold">Hoàng Xuân Trường.</strong></p>
           <p className="text-muted-foreground leading-relaxed max-w-xl">
-            I build backend systems with Go and Node.js, drawing on 2+ years in software engineering. My work connects APIs, event-driven services, and cloud infrastructure, with a focus on reliability from design to deployment.
+            I build backend systems with Go and Node.js. My work connects APIs, event-driven services, and cloud infrastructure, with a focus on reliability from design to deployment.
           </p>
           <p className="text-muted-foreground leading-relaxed max-w-xl mt-3">
             Lately, I’m building <a href="#projects" className="font-semibold text-foreground underline underline-offset-4 hover:text-accent">Hexta</a>, a platform that helps small and medium businesses sell and market online, through three apps: a unified inbox with orders, Facebook Page publishing, and AI ad content.

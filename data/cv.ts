@@ -30,7 +30,7 @@ export const cv = {
     github: "github.com/TruongHoang2004",
   },
   summary:
-    "Backend engineer with 2+ years building Go, Node.js and Python services, messaging integrations and the infrastructure that runs them. I have shipped services solo, rebuilt CI/CD and GitOps for 20+ services on AWS, and spent much of my time on production work: data incidents, security remediation, migrations and observability. Currently building Hexta, a platform for small businesses.",
+    "Backend engineer building Go, Node.js and Python services, messaging integrations and the infrastructure that runs them. I have shipped services solo, rebuilt CI/CD and GitOps for 20+ services on AWS, and spent much of my time on production work: data incidents, security remediation, migrations and observability. Currently building Hexta, a platform for small businesses.",
   skills: [
     { group: "Languages", items: "Go, TypeScript, JavaScript, Python, SQL" },
     { group: "Backend", items: "NestJS, FastAPI, Fiber, Fastify, REST, GraphQL, gRPC, Prisma, sqlc" },
