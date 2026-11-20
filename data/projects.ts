@@ -44,15 +44,4 @@ export const personalProjects: PersonalProject[] = [
     technologies: "Go · Gin · GORM · Next.js · PostgreSQL · Redis · Kafka · Docker",
     url: "https://github.com/TruongHoang2004/Hexta",
   },
-  {
-    name: "Omni Bridge",
-    category: "Recent engineering contribution",
-    description: "Integration testing and reliability work for a Go service connecting messaging platforms with internal chat services.",
-    highlights: [
-      "Work on inbound webhooks, outbound workers, connection lifecycle, cache consistency, and message-ordering test scenarios.",
-      "Investigate platform identity mismatches and request-buffer ownership across asynchronous processing boundaries.",
-      "Develop a test-harness approach using MySQL, Redis, Kafka, HTTP platform doubles, and gRPC service doubles.",
-    ],
-    technologies: "Go · Fiber · GORM · MySQL · Redis · Kafka · gRPC · Integration Testing",
-  },
 ];

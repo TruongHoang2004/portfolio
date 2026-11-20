@@ -32,10 +32,10 @@ export default function Home() {
       <div>
         <Hero />
         <Skills />
-        <PersonalProjects />
         <LearningMindmap />
         <div id="experience"><Experience /></div>
         <Education />
+        <PersonalProjects />
       </div>
 
       <footer className="py-8 text-center text-muted-foreground text-sm">
