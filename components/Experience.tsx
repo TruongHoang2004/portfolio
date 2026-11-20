@@ -86,7 +86,26 @@ export function Experience() {
                         </div>
                       )}
                       
-                      <ul className="space-y-3 mb-5">
+                      {project.areas && (
+                        <div className="space-y-5 mb-5">
+                          {project.areas.map((area) => (
+                            <div key={area.title}>
+                              <h6 className="text-xs font-bold uppercase tracking-wider text-accent mb-2">{area.title}</h6>
+                              <ul className="space-y-2">
+                                {area.points.map((point) => (
+                                  <li key={point} className="flex items-start gap-3 text-muted-foreground text-sm leading-relaxed">
+                                    <ChevronRight className="w-4 h-4 text-accent shrink-0 mt-0.5" />
+                                    <span>{point}</span>
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
+                          ))}
+                        </div>
+                      )}
+
+                      {project.achievements && (
+                        <ul className="space-y-3 mb-5">
                         {project.achievements.map((achievement, aIdx) => (
                           <li key={aIdx} className="flex items-start gap-3 text-muted-foreground text-sm leading-relaxed">
                             <ChevronRight className="w-4 h-4 text-accent shrink-0 mt-0.5" />
@@ -94,6 +113,7 @@ export function Experience() {
                           </li>
                         ))}
                       </ul>
+                      )}
                       
                       {project.technologies && (
                         <div className="mt-6 pt-4 border-t border-border/50">

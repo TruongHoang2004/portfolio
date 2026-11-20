@@ -1,7 +1,14 @@
+export type ResponsibilityArea = {
+  title: string;
+  points: string[];
+};
+
 export type Project = {
   name?: string;
   description?: string;
-  achievements: string[];
+  achievements?: string[];
+  // Engineer-style grouping: each area is a responsibility with the concerns handled in it.
+  areas?: ResponsibilityArea[];
   technologies?: string;
 };
 
@@ -47,13 +54,38 @@ export const getExperiencesData = (locale: string): Experience[] => {
         {
           name: "Veritone aiWARE Processing",
           description: isVi
-            ? "Nền tảng xử lý AI phân tán và tự động hoá workflow, chạy trên cloud và các edge cluster Kubernetes · Tháng 4 – Tháng 10 2026. Team gồm 2 kỹ sư Việt Nam và 3 kỹ sư nước ngoài phía khách hàng; tôi tiếp tục ở vị trí shadow, xử lý các task khách hàng giao vào ban ngày."
-            : "Distributed AI processing and workflow automation platform running on cloud and Kubernetes edge clusters · Apr – Oct 2026. Team of 2 engineers in Vietnam and 3 overseas client engineers; I continued as a shadow engineer, delivering client-assigned tasks during the day.",
-          achievements: [
-            isVi ? "Release engineering: thiết kế versioning Docker image bất biến theo commit cho 7+ repo và 3 kênh release (CI/CD, Helm, GitOps); expose build metadata qua Prometheus để QA/support kiểm tra version đang chạy mà không cần truy cập cluster." : "Release engineering: designed immutable, commit-based image versioning across 7+ repos and 3 release channels (CI/CD, Helm, GitOps), and exposed build metadata via Prometheus so QA and support can verify deployed versions without cluster access.",
-            isVi ? "Bảo mật: xử lý 22 CVE Critical, 55 CVE High và 8 lỗ hổng dependency; chuẩn hoá container non-root; phân tích một lỗ hổng SQL injection nghiêm trọng và xác định phạm vi khắc phục." : "Security: remediated 22 Critical and 55 High container CVEs plus 8 dependency vulnerabilities, standardized non-root containers, and scoped the fix for a critical SQL injection.",
-            isVi ? "Nâng cấp nền tảng: nâng Node-RED workflow runtime từ v3 lên v4.1.8+; sửa regression sau migrate frontend trên 15 trang admin và lỗi CI do không tương thích Node.js/package manager." : "Platform upgrades: moved the Node-RED workflow runtime from v3 to v4.1.8+, and fixed a frontend migration regression across 15 admin pages plus Node.js/package-manager CI failures.",
-            isVi ? "Độ tin cậy: cải thiện chẩn đoán job phân tán bằng cách ghi đúng lý do lỗi của engine vào task, và điều tra độ trễ nhiều giờ khi đồng bộ trạng thái job giữa edge cluster và API trung tâm." : "Reliability: improved distributed job diagnostics by recording real engine failure reasons on tasks, and investigated multi-hour job-status sync delays between edge clusters and the central API."
+            ? "Nền tảng xử lý AI phân tán · Tháng 4 – Tháng 10 2026. Một job được tạo qua aiWARE Core, chia thành nhiều task; mỗi task chạy một engine trong pod riêng do edge controller điều phối, rồi kết quả được ghi về Core. Engine có thể do lập trình viên viết, hoặc là flow Node-RED người dùng tự vẽ và deploy. Team gồm 2 kỹ sư Việt Nam và 3 kỹ sư phía khách hàng; tôi ở vị trí shadow, tập trung quan sát luồng chạy job và tìm chỗ cần cải thiện."
+            : "Distributed AI processing platform · Apr – Oct 2026. A job is created through aiWARE Core and split into tasks; each task runs an engine in its own pod, orchestrated by an edge controller, with results written back to Core. Engines are either written by developers or Node-RED flows that users draw and deploy themselves. Team of 2 engineers in Vietnam and 3 client engineers; as a shadow engineer I focused on watching the job flow and finding what needed improving.",
+          areas: [
+            {
+              title: isVi ? "Độ tin cậy của luồng chạy job" : "Job pipeline reliability",
+              points: [
+                isVi ? "Truy vết các sự cố job bị kẹt nhiều giờ dọc theo cả luồng (Core → outbox → pod của task → edge controller); mỗi lần một nguyên nhân khác nhau, từ pod Node-RED chạy xong nhưng không tự tắt đến trạng thái job không đồng bộ về Core." : "Traced multi-hour job stalls across the whole pipeline (Core → outbox → task pods → edge controller); the root cause differed every time, from Node-RED pods that finished but never shut down to job status that never synced back to Core.",
+                isVi ? "Ghi đúng lý do lỗi của engine vào task, để chẩn đoán lỗi mà không phải lần vào từng pod." : "Recorded accurate engine failure reasons on tasks, so failures can be diagnosed without digging into individual pods.",
+              ],
+            },
+            {
+              title: isVi ? "Quan sát hệ thống" : "Observability",
+              points: [
+                isVi ? "Thiết kế các gauge metric Prometheus cho pod Node-RED: phiên bản runtime, chạy trên node nào, chạy từ khi nào, để sớm phát hiện pod bị treo hoặc chạy phiên bản cũ." : "Designed Prometheus gauge metrics for Node-RED pods (runtime version, node placement, uptime) to catch stuck or outdated flow-engine pods early.",
+                isVi ? "Expose build metadata để QA và support xác nhận phiên bản đang chạy mà không cần truy cập cluster." : "Exposed build metadata so QA and support can confirm what is deployed without cluster access.",
+              ],
+            },
+            {
+              title: isVi ? "Mạng giữa các cluster" : "Multi-cluster networking",
+              points: [
+                isVi ? "Mở đường mạng để các cluster production gọi chéo được nhau." : "Opened a network path so production clusters can call each other.",
+                isVi ? "Thêm tuỳ chọn ghi đè trong Helm để chuyển service từ URL nội bộ (mặc định) sang URL public cho từng môi trường cần gọi chéo." : "Added a Helm override that switches services from internal URLs (the default) to public ones for deployments that need cross-cluster calls.",
+              ],
+            },
+            {
+              title: isVi ? "Release engineering & bảo mật chuỗi cung ứng" : "Release engineering & supply-chain security",
+              points: [
+                isVi ? "Thiết kế versioning image bất biến theo commit cho 7+ repo và 3 kênh release (CI/CD, Helm, GitOps), để mọi lần deploy đều tái tạo được." : "Designed immutable, commit-based image versioning across 7+ repos and 3 release channels (CI/CD, Helm, GitOps), making every deployment reproducible.",
+                isVi ? "Xử lý 22 CVE container mức Critical, 55 mức High và 8 lỗ hổng dependency; chuẩn hoá container chạy non-root." : "Remediated 22 Critical and 55 High container CVEs plus 8 dependency vulnerabilities, and standardized non-root containers.",
+                isVi ? "Phân tích một lỗ hổng SQL injection nghiêm trọng từ input đã xác thực đến câu SQL động và xác định phạm vi khắc phục." : "Analyzed a critical SQL injection path from authenticated input to dynamic SQL and scoped the fix.",
+              ],
+            },
           ],
           technologies: "Go · Node.js · React · GraphQL · PostgreSQL · Docker · Kubernetes · Helm · Argo CD · Jenkins · Prometheus"
         },
@@ -91,13 +123,36 @@ export const getExperiencesData = (locale: string): Experience[] => {
           description: isVi
             ? "Core GraphQL API của nền tảng AI aiWARE · Tháng 1 – Tháng 3 2026. API chính viết bằng Node.js vì quá lớn để migrate, các service còn lại của nền tảng viết bằng Go. Team ~6 kỹ sư Việt Nam cùng các kỹ sư phía khách hàng ở nước ngoài. Tôi ở vị trí shadow: một kỹ sư headcount trao đổi với khách hàng hằng ngày vào ban đêm, còn tôi xử lý các task khách hàng giao vào ban ngày."
             : "Core GraphQL API of Veritone's aiWARE AI platform · Jan – Mar 2026. The main API stays in Node.js because it is too large to migrate; the platform's other services are written in Go. Team of ~6 engineers in Vietnam working with the client's overseas engineers. I worked as a shadow engineer: a headcount engineer handled daily overnight syncs with the client, and I delivered the client-assigned tasks during the day.",
-          achievements: [
-            isVi ? "Hiện đại hoá API: migrate GraphQL API public từ Apollo/Express sang GraphQL Yoga + Envelop trên Fastify (GraphQL v16), không phát sinh regression." : "Modernized the public GraphQL API: migrated from Apollo/Express to GraphQL Yoga + Envelop on Fastify (GraphQL v16) with zero test regressions.",
-            isVi ? "Phát triển API: sorting có kiểu (5 trường), batch fetch theo danh sách ID (1 request thay cho N), kiểm tra phân quyền role–application khi tạo/cập nhật user; sửa lỗi export/import package giữa các cluster." : "Shipped API features: typed sorting (5 fields), batch fetch by ID list (1 request instead of N), and role-to-application authorization checks on user writes; fixed cross-cluster package export/import.",
-            isVi ? "Chẩn đoán và xử lý dữ liệu sai trên production sau các đợt migrate schema: truy vết 169/363.515 bản ghi hỏng bằng SQL, khôi phục dữ liệu cho các tổ chức bị ảnh hưởng và đề xuất thiết kế migration an toàn hơn." : "Diagnosed and fixed corrupted production data after schema migrations: traced 169 of 363,515 records via SQL, restored affected organizations' data, and drove a safer migration design.",
-            isVi ? "Bảo mật & CI: xử lý toàn bộ CVE container mức Critical/High về 0 (Trivy) và gỡ tắc CI bằng cách refactor integration test." : "Security & CI: cleared all Critical/High container CVEs to zero Trivy findings and unblocked CI by refactoring integration tests."
+          areas: [
+            {
+              title: isVi ? "Migration dữ liệu & toàn vẹn dữ liệu" : "Data migration & integrity",
+              points: [
+                isVi ? "Triển khai và duy trì việc chuyển cây thư mục của từng org từ v1 (quan hệ cha–con) sang v2 dùng PostgreSQL ltree, bật theo từng org qua feature flag." : "Implemented and maintained moving each organization's folder tree from v1 (parent–child relations) to v2 on PostgreSQL ltree, rolled out per organization behind feature flags.",
+                isVi ? "Khi các migration đời đầu làm dữ liệu v1 và v2 lệch nhau, dùng SQL truy ra 169 bản ghi hỏng (151 folder gốc) trên 363.515, khôi phục dữ liệu cho các org bị ảnh hưởng và đề xuất quy trình migration an toàn hơn." : "When early migrations left v1 and v2 out of sync, traced 169 corrupted records (151 root folders) out of 363,515 with SQL, restored the affected organizations' data, and proposed a safer migration process.",
+              ],
+            },
+            {
+              title: isVi ? "Phân quyền" : "Authorization",
+              points: [
+                isVi ? "Duy trì schedule job backfill nhóm quyền vào Elasticsearch, để tìm kiếm trên các đối tượng media (TDO, SDO) chỉ trả về những gì người dùng được xem; truy vết và sửa các chỗ lệch quyền giữa database và index." : "Maintained the scheduled job that backfills permission groups into Elasticsearch, so search over media objects (TDOs, SDOs) only returns what each user may see; traced and fixed permission mismatches between the database and the index.",
+                isVi ? "Sửa các bug phân quyền tồn đọng của org invite: chuẩn hoá ai được mời ai, thêm thời gian chờ sau khi bị từ chối, và kiểm thử email mời đầu cuối trên SMTP server riêng." : "Fixed long-standing org-invite authorization bugs: standardized who can invite whom, added a cooldown after a declined invite, and tested invitation emails end to end on a dedicated SMTP server.",
+              ],
+            },
+            {
+              title: isVi ? "Nền tảng API" : "API platform",
+              points: [
+                isVi ? "Migrate GraphQL API public từ Apollo/Express sang GraphQL Yoga + Envelop trên Fastify (GraphQL v16), không phát sinh regression." : "Migrated the public GraphQL API from Apollo/Express to GraphQL Yoga + Envelop on Fastify (GraphQL v16) with zero regressions.",
+                isVi ? "Thêm sorting có kiểu (5 trường), batch fetch theo danh sách ID (1 request thay cho N) và kiểm tra quyền role–application khi tạo/cập nhật user." : "Added typed sorting (5 fields), batch fetch by ID list (1 request instead of N), and role-to-application authorization checks on user writes.",
+              ],
+            },
+            {
+              title: isVi ? "Bảo mật & CI" : "Security & CI",
+              points: [
+                isVi ? "Đưa toàn bộ CVE container mức Critical/High về 0 (Trivy) và refactor các integration test đang chặn CI." : "Cleared all Critical/High container CVEs to zero Trivy findings and refactored the integration tests that blocked CI.",
+              ],
+            },
           ],
-          technologies: "Go · Node.js · GraphQL · GraphQL Yoga · Fastify · PostgreSQL · Docker · Kubernetes · Helm · Argo CD · Trivy"
+          technologies: "Go · Node.js · GraphQL · GraphQL Yoga · Fastify · PostgreSQL · Elasticsearch · Docker · Kubernetes · Helm · Argo CD · Trivy"
         },
         {
           name: "EMS (Employee Management System)",
