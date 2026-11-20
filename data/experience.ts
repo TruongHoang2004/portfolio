@@ -19,7 +19,7 @@ export const getExperiencesData = (locale: string): Experience[] => {
   return [
     {
       company: "PiScale",
-      role: isVi ? "Kỹ sư Backend (Cộng tác viên)" : "Backend Engineer (Collaborator)",
+      role: isVi ? "Lập trình viên Backend (Cộng tác viên)" : "Backend Developer (Collaborator)",
       period: isVi ? "Tháng 10 2026 – Hiện tại" : "Oct 2026 – Present",
       description: isVi
         ? "Communi: nền tảng chăm sóc khách hàng đa kênh gồm ~36 microservice, hỗ trợ SaaS và on-premise."
