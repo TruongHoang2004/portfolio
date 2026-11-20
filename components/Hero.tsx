@@ -14,7 +14,7 @@ export function Hero() {
             I build backend systems with Go and Node.js, drawing on 2+ years in software engineering. My work connects APIs, event-driven services, and cloud infrastructure, with a focus on reliability from design to deployment.
           </p>
           <p className="text-muted-foreground leading-relaxed max-w-xl mt-3">
-            Lately, I’m building products around social publishing, commerce, and AI video workflows — and using them to ask better questions about architecture and testing.
+            Lately, I’m building <a href="#projects" className="font-semibold text-foreground underline underline-offset-4 hover:text-accent">Hexta</a>, a platform that helps small and medium businesses sell and market online, through three apps: a unified inbox with orders, Facebook Page publishing, and AI ad content.
           </p>
           <div className="flex flex-wrap gap-3 mt-7">
             <a href="#projects" className="notebook-button">Explore my projects <ArrowUpRight className="w-4 h-4" aria-hidden="true" /></a>

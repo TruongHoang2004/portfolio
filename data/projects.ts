@@ -9,12 +9,20 @@ export type PersonalProject = {
 
 export const HEXTA_URL = "https://hexta.org/";
 
-// The three applications of Hexta, a platform I'm building to help small and medium
-// businesses sell and market online.
+// Hexta is one platform; the projects below are its three applications.
+export const hexta = {
+  name: "Hexta",
+  url: HEXTA_URL,
+  status: "Platform · In development",
+  tagline: "One platform to help small and medium businesses sell and market online.",
+  description:
+    "I'm building Hexta as a single platform made of three applications that share accounts, data and infrastructure: one inbox for customer messages and orders, Facebook Page publishing, and AI-made ad content.",
+};
+
 export const personalProjects: PersonalProject[] = [
   {
     name: "Hexta Desktop",
-    category: "Hexta · Unified inbox & orders",
+    category: "Customer messages & orders",
     description: "Brings customer messages from many channels (Facebook Page, Telegram bot, Zalo and more) into one inbox, alongside order management, so a small team can sell from a single place.",
     highlights: [
       "Aggregate conversations from Facebook Page, Telegram and Zalo into one multi-tenant inbox.",
@@ -26,7 +34,7 @@ export const personalProjects: PersonalProject[] = [
   },
   {
     name: "PostPilot",
-    category: "Hexta · Facebook Page management · Deployed",
+    category: "Facebook Page publishing · Deployed",
     description: "Manages Facebook Pages and publishes posts automatically, with AI-assisted content generation.",
     highlights: [
       "Schedule and auto-publish posts to Facebook Pages through the Meta Graph API.",
@@ -38,7 +46,7 @@ export const personalProjects: PersonalProject[] = [
   },
   {
     name: "ViralForge",
-    category: "Hexta · AI ad content",
+    category: "AI ad content",
     description: "Collects content that is going viral, then helps businesses turn it into their own ad content (video, images and copy) with AI.",
     highlights: [
       "Gather trending content as input for new ad ideas.",
