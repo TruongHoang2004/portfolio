@@ -56,8 +56,8 @@ export const getExperiencesData = (locale: string): Experience[] => {
         {
           name: "Veritone aiWARE Processing",
           description: isVi
-            ? "Nền tảng xử lý AI phân tán và tự động hoá workflow, chạy trên cloud và các edge cluster Kubernetes · Tháng 4 – Tháng 10 2026. Team gồm 2 kỹ sư Việt Nam và 3 kỹ sư nước ngoài phía khách hàng."
-            : "Distributed AI processing and workflow automation platform running on cloud and Kubernetes edge clusters · Apr – Oct 2026. Team of 2 engineers in Vietnam and 3 overseas client engineers.",
+            ? "Nền tảng xử lý AI phân tán và tự động hoá workflow, chạy trên cloud và các edge cluster Kubernetes · Tháng 4 – Tháng 10 2026. Team gồm 2 kỹ sư Việt Nam và 3 kỹ sư nước ngoài phía khách hàng; tôi tiếp tục ở vị trí shadow, xử lý các task khách hàng giao vào ban ngày."
+            : "Distributed AI processing and workflow automation platform running on cloud and Kubernetes edge clusters · Apr – Oct 2026. Team of 2 engineers in Vietnam and 3 overseas client engineers; I continued as a shadow engineer, delivering client-assigned tasks during the day.",
           achievements: [
             isVi ? "Release engineering: thiết kế versioning Docker image bất biến theo commit cho 7+ repo và 3 kênh release (CI/CD, Helm, GitOps); expose build metadata qua Prometheus để QA/support kiểm tra version đang chạy mà không cần truy cập cluster." : "Release engineering: designed immutable, commit-based image versioning across 7+ repos and 3 release channels (CI/CD, Helm, GitOps), and exposed build metadata via Prometheus so QA and support can verify deployed versions without cluster access.",
             isVi ? "Bảo mật: xử lý 22 CVE Critical, 55 CVE High và 8 lỗ hổng dependency; chuẩn hoá container non-root; phân tích một lỗ hổng SQL injection nghiêm trọng và xác định phạm vi khắc phục." : "Security: remediated 22 Critical and 55 High container CVEs plus 8 dependency vulnerabilities, standardized non-root containers, and scoped the fix for a critical SQL injection.",
