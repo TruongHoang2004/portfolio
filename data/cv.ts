@@ -96,12 +96,12 @@ export const cv = {
         },
         {
           name: "Veritone aiWARE Core",
-          context: "Core GraphQL API · Jan – Mar 2026 · shadow engineer in a ~6-person VN team",
+          context: "Core GraphQL API (Node.js main API, Go services) · Jan – Mar 2026 · shadow engineer in a ~6-person VN team",
           bullets: [
             "Migrated the public GraphQL API from Apollo/Express to GraphQL Yoga + Envelop on Fastify (GraphQL v16) with zero regressions; shipped typed sorting, batch fetch and authorization checks.",
             "Diagnosed and fixed corrupted production data after schema migrations (169 of 363,515 records) and drove a safer migration design; cleared all Critical/High CVEs.",
           ],
-          stack: "Node.js, GraphQL Yoga, Fastify, PostgreSQL, Kubernetes, Trivy",
+          stack: "Go, Node.js, GraphQL Yoga, Fastify, PostgreSQL, Kubernetes, Trivy",
         },
         {
           name: "EMS",
