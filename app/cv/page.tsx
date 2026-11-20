@@ -84,9 +84,19 @@ export default function CvPage() {
                     {p.name}
                     {"context" in p && p.context && <span className={styles.context}> — {p.context}</span>}
                   </h4>
-                  <ul>
-                    {p.bullets.map((b) => <li key={b}>{b}</li>)}
-                  </ul>
+                  {"bullets" in p && p.bullets && (
+                    <ul>
+                      {p.bullets.map((b) => <li key={b}>{b}</li>)}
+                    </ul>
+                  )}
+                  {"areas" in p && p.areas?.map((area) => (
+                    <div key={area.title} className={styles.area}>
+                      <p className={styles.areaTitle}>{area.title}</p>
+                      <ul>
+                        {area.points.map((point) => <li key={point}>{point}</li>)}
+                      </ul>
+                    </div>
+                  ))}
                   {"stack" in p && p.stack && <p className={styles.stack}>{p.stack}</p>}
                 </div>
               ))}

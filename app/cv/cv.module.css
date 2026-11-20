@@ -105,7 +105,12 @@
 .period { color: var(--muted); font-size: 8.8pt; white-space: nowrap; font-variant-numeric: tabular-nums; }
 .jobSummary { color: var(--muted); font-style: italic; margin-top: 2px; }
 
-.project { margin-top: 5px; break-inside: avoid; }
+.project { margin-top: 5px; }
+/* Keep headings with what follows and keep each bullet / area whole, but let long projects
+   flow across pages instead of jumping to the next page as one block. */
+.project h4, .jobSummary, .areaTitle { break-after: avoid; }
+.project li, .stack { break-inside: avoid; }
+.area { break-inside: avoid; }
 .project h4 { font-size: 9.6pt; font-weight: 600; }
 .context { color: var(--muted); font-weight: 400; }
 .status {
@@ -121,6 +126,15 @@
 .project ul { margin-top: 2px; padding-left: 14px; list-style: disc; }
 .project li { margin-top: 1px; }
 .project li::marker { color: var(--accent); }
+.area { margin-top: 4px; }
+.areaTitle {
+  margin-top: 3px;
+  font-size: 7.8pt;
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
 .stack { margin-top: 2px; color: var(--muted); font-size: 8.6pt; }
 
 .twoCol { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; break-inside: avoid; }

@@ -3,11 +3,14 @@
 
 export const CV_PDF_PATH = "/Hoang-Xuan-Truong-CV.pdf";
 
+export type CvArea = { title: string; points: string[] };
+
 export type CvProject = {
   name: string;
   context?: string;
   status?: string;
-  bullets: string[];
+  bullets?: string[];
+  areas?: CvArea[];
   stack?: string;
 };
 
@@ -67,13 +70,36 @@ export const cv = {
       projects: [
         {
           name: "Veritone aiWARE Processing",
-          context: "Distributed AI processing on Kubernetes edge clusters · Apr – Oct 2026 · shadow engineer, 2 VN + 3 client engineers",
-          bullets: [
-            "Release engineering: immutable, commit-based image versioning across 7+ repos and 3 release channels (CI/CD, Helm, GitOps); build metadata in Prometheus so QA can verify deployed versions.",
-            "Security: remediated 22 Critical and 55 High container CVEs plus 8 dependency vulnerabilities, standardized non-root containers, and scoped a critical SQL injection fix.",
-            "Platform upgrades: Node-RED runtime v3 → v4.1.8+; fixed a frontend migration regression across 15 admin pages and Node.js CI failures.",
+          context: "Distributed AI processing platform · Apr – Oct 2026 · shadow engineer, 2 VN + 3 client engineers. Jobs created in Core split into tasks; each task runs an engine in its own pod under an edge controller, and engines can be Node-RED flows that users draw and deploy.",
+          areas: [
+            {
+              title: "Job pipeline reliability",
+              points: [
+                "Traced multi-hour job stalls across Core → outbox → task pods → edge controller; the root cause differed each time, from Node-RED pods that finished but never shut down to job status that never synced back to Core.",
+                "Recorded accurate engine failure reasons on tasks so failures can be diagnosed without digging into pods.",
+              ],
+            },
+            {
+              title: "Observability",
+              points: [
+                "Designed Prometheus gauge metrics for Node-RED pods (runtime version, node placement, uptime) to catch stuck or outdated flow-engine pods, plus build metadata so QA and support verify deployments without cluster access.",
+              ],
+            },
+            {
+              title: "Multi-cluster networking",
+              points: [
+                "Opened a network path for cross-cluster calls between production clusters and added a Helm override that switches services from internal to public URLs where needed.",
+              ],
+            },
+            {
+              title: "Release engineering & supply-chain security",
+              points: [
+                "Designed immutable, commit-based image versioning across 7+ repos and 3 release channels (CI/CD, Helm, GitOps), making every deployment reproducible.",
+                "Remediated 22 Critical and 55 High container CVEs plus 8 dependency vulnerabilities, standardized non-root containers, and scoped the fix for a critical SQL injection.",
+              ],
+            },
           ],
-          stack: "Go, Node.js, GraphQL, PostgreSQL, Kubernetes, Helm, Argo CD, Jenkins, Prometheus",
+          stack: "Go, Node.js, Node-RED, GraphQL, PostgreSQL, Kubernetes, Helm, Argo CD, Jenkins, Prometheus",
         },
         {
           name: "Sunwest",
@@ -96,12 +122,31 @@ export const cv = {
         },
         {
           name: "Veritone aiWARE Core",
-          context: "Core GraphQL API (Node.js main API, Go services) · Jan – Mar 2026 · shadow engineer in a ~6-person VN team",
-          bullets: [
-            "Migrated the public GraphQL API from Apollo/Express to GraphQL Yoga + Envelop on Fastify (GraphQL v16) with zero regressions; shipped typed sorting, batch fetch and authorization checks.",
-            "Diagnosed and fixed corrupted production data after schema migrations (169 of 363,515 records) and drove a safer migration design; cleared all Critical/High CVEs.",
+          context: "Core GraphQL API (Node.js) with surrounding Go services · Jan – Mar 2026 · shadow engineer in a ~6-person VN team",
+          areas: [
+            {
+              title: "Data migration & integrity",
+              points: [
+                "Implemented and maintained moving each organization's folder tree from v1 parent–child relations to v2 on PostgreSQL ltree, rolled out per organization behind feature flags.",
+                "When early migrations left v1 and v2 out of sync, traced 169 corrupted records (151 root folders) out of 363,515 with SQL, restored the affected organizations, and proposed a safer migration process.",
+              ],
+            },
+            {
+              title: "Authorization",
+              points: [
+                "Maintained the scheduled job that backfills permission groups into Elasticsearch so search over media objects only returns what each user may see; traced and fixed database-to-index mismatches.",
+                "Fixed long-standing org-invite authorization bugs: who can invite whom and a cooldown after a declined invite, tested end to end on a dedicated SMTP server.",
+              ],
+            },
+            {
+              title: "API platform & security",
+              points: [
+                "Migrated the public GraphQL API from Apollo/Express to GraphQL Yoga + Envelop on Fastify (GraphQL v16) with zero regressions; added typed sorting, batch fetch (1 request instead of N) and authorization checks.",
+                "Cleared all Critical/High container CVEs to zero Trivy findings and refactored integration tests that blocked CI.",
+              ],
+            },
           ],
-          stack: "Go, Node.js, GraphQL Yoga, Fastify, PostgreSQL, Kubernetes, Trivy",
+          stack: "Node.js, Go, GraphQL Yoga, Fastify, PostgreSQL (ltree), Elasticsearch, Kubernetes, Trivy",
         },
         {
           name: "EMS",
