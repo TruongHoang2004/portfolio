@@ -39,7 +39,7 @@ export const cv = {
     { group: "Infrastructure", items: "Docker, Kubernetes, Helm, Argo CD, AWS (EC2, S3, IAM)" },
     { group: "CI/CD & IaC", items: "Jenkins, GitHub Actions, GitLab CI, Terraform, AWS Lambda, Amazon ECR" },
     { group: "Observability", items: "Prometheus, Grafana, Loki, Promtail, Jaeger" },
-    { group: "AI", items: "RAG, LiteLLM, MCP, agentic workflows, Claude Code" },
+    { group: "AI", items: "RAG, LiteLLM, MCP, agentic workflows" },
   ],
   experience: [
     {
