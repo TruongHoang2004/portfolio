@@ -48,7 +48,7 @@ export const getExperiencesData = (locale: string): Experience[] => {
     {
       company: "SETA International",
       role: isVi ? "Kỹ sư Phần mềm" : "Software Engineer",
-      period: isVi ? "Tháng 9 2025 – Tháng 9 2026" : "Sep 2025 – Sep 2026",
+      period: isVi ? "Tháng 9 2025 – Tháng 10 2026" : "Sep 2025 – Oct 2026",
       description: isVi 
         ? "Đóng góp vào nhiều dự án doanh nghiệp, bao gồm kỹ thuật nền tảng, phát triển full-stack và hạ tầng đám mây."
         : "Contributed to multiple enterprise projects, spanning platform engineering, full-stack development, and cloud infrastructure.",
@@ -56,8 +56,8 @@ export const getExperiencesData = (locale: string): Experience[] => {
         {
           name: "Veritone aiWARE Processing",
           description: isVi
-            ? "Nền tảng xử lý AI phân tán và tự động hoá workflow, chạy trên cloud và các edge cluster Kubernetes · Tháng 4 – Tháng 9 2026"
-            : "Distributed AI processing and workflow automation platform running on cloud and Kubernetes edge clusters · Apr – Sep 2026",
+            ? "Nền tảng xử lý AI phân tán và tự động hoá workflow, chạy trên cloud và các edge cluster Kubernetes · Tháng 4 – Tháng 10 2026"
+            : "Distributed AI processing and workflow automation platform running on cloud and Kubernetes edge clusters · Apr – Oct 2026",
           achievements: [
             isVi ? "Release engineering: thiết kế versioning Docker image bất biến theo commit cho 7+ repo và 3 kênh release (CI/CD, Helm, GitOps); expose build metadata qua Prometheus để QA/support kiểm tra version đang chạy mà không cần truy cập cluster." : "Release engineering: designed immutable, commit-based image versioning across 7+ repos and 3 release channels (CI/CD, Helm, GitOps), and exposed build metadata via Prometheus so QA and support can verify deployed versions without cluster access.",
             isVi ? "Bảo mật: xử lý 22 CVE Critical, 55 CVE High và 8 lỗ hổng dependency; chuẩn hoá container non-root; phân tích một lỗ hổng SQL injection nghiêm trọng và xác định phạm vi khắc phục." : "Security: remediated 22 Critical and 55 High container CVEs plus 8 dependency vulnerabilities, standardized non-root containers, and scoped the fix for a critical SQL injection.",
