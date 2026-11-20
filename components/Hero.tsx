@@ -1,6 +1,5 @@
 import { ArrowUpRight, Download, Mail, MapPin, Phone } from "lucide-react";
 import { CV_PDF_PATH } from "@/data/cv";
-import Image from "next/image";
 
 export function Hero() {
   return (
@@ -22,7 +21,6 @@ export function Hero() {
           </div>
         </div>
         <aside className="notebook-note">
-          <Image src="/TruongHoang.png" alt="Hoàng Xuân Trường" width={88} height={88} className="rounded-full mb-5 grayscale" priority />
           <p className="notebook-label">Currently exploring</p>
           <p className="font-serif text-2xl leading-tight mt-3 mb-5">Build. Understand.<br />Refine.</p>
           <p className="font-mono text-xs text-muted-foreground leading-7 border-t border-border pt-3">Go & concurrency<br />Domain-driven design<br />Reliable async workflows</p>
