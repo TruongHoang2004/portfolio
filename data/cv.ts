@@ -73,11 +73,10 @@ export const cv = {
           ],
         },
         {
-          name: "Ticket Service & omni-bridge v2",
-          status: "Design / in development",
+          name: "Ticket Service",
+          status: "Design phase",
           bullets: [
             "Designed a standalone Ticket Service: ~30 REST endpoints, 7 tables, a 5-state lifecycle, priority-based SLA, optimistic locking, 6-role RBAC, expiring attachment URLs, Kafka notifications.",
-            "Building the omni-bridge v2 foundation (~6,900 lines of Go): hexagonal architecture, W3C trace propagation, structured logging, DLQ and versioned migrations.",
           ],
         },
       ],
