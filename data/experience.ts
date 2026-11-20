@@ -72,9 +72,11 @@ export const getExperiencesData = (locale: string): Experience[] => {
             ? "Dự án DevOps ngắn hạn cho Sunwest, khách hàng của Veritone · Tháng 7 – Tháng 9 2026, song song với aiWARE Processing. Team 2 người."
             : "Short-term DevOps engagement for Sunwest, a Veritone client · Jul – Sep 2026, in parallel with aiWARE Processing. Team of 2.",
           achievements: [
-            isVi ? "Xây dựng lại quy trình delivery từ đầu khi khách hàng chuyển toàn bộ repo từ GitLab sang GitHub: pipeline CI bằng Jenkins cho khoảng 20 service và luồng triển khai GitOps viết mới hoàn toàn." : "Rebuilt the delivery process from scratch as the client moved all repositories from GitLab to GitHub: Jenkins CI pipelines for ~20 services and a GitOps deployment flow written from the ground up."
+            isVi ? "Xây dựng lại quy trình delivery từ đầu khi khách hàng chuyển toàn bộ repo từ GitLab sang GitHub, cho khoảng 20 service chạy hoàn toàn trên AWS." : "Rebuilt the delivery process from scratch for ~20 services running entirely on AWS, as the client moved all repositories from GitLab to GitHub.",
+            isVi ? "CI với Jenkins: viết shared library dùng chung cho cả 20 service; pipeline chạy test, quét bảo mật, build Docker image và đẩy lên Amazon ECR." : "Jenkins CI: wrote a shared library reused across all ~20 services; pipelines run tests and security scans, build Docker images and push them to Amazon ECR.",
+            isVi ? "GitOps: thiết kế lại luồng triển khai từ đầu với Helm chart và Argo CD lên Kubernetes trên AWS." : "GitOps: designed the deployment flow from the ground up with Helm charts and Argo CD onto Kubernetes on AWS."
           ],
-          technologies: "Jenkins · GitOps · GitHub · Docker · Kubernetes"
+          technologies: "Jenkins · Groovy Shared Library · Docker · Amazon ECR · Helm · Argo CD · Kubernetes · AWS · GitHub"
         },
         {
           name: "Edu Vengy",
