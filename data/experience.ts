@@ -67,6 +67,19 @@ export const getExperiencesData = (locale: string): Experience[] => {
           technologies: "Go · Node.js · React · GraphQL · PostgreSQL · Docker · Kubernetes · Helm · Argo CD · Jenkins · Prometheus"
         },
         {
+          name: "Edu Vengy",
+          description: isVi
+            ? "Dự án chuyển đổi số ngắn hạn cho khách hàng Vengy: nền tảng e-learning và quản lý đào tạo tích hợp AI · Tháng 5 – Tháng 7 2026, song song với aiWARE Processing. Tôi thiết kế các phần core của backend và pipeline CI/CD."
+            : "Short-term digital transformation project for the client Vengy: an AI-powered e-learning and training management platform · May – Jul 2026, in parallel with aiWARE Processing. I designed the core backend and the CI/CD pipeline.",
+          achievements: [
+            isVi ? "Hạ tầng & CI/CD: lập đề xuất cấu hình hạ tầng và chi phí vận hành làm cơ sở cho proposal gửi khách hàng; dựng server, DNS, firewall và pipeline GitHub Actions (lint, unit test, Docker, tự động deploy lên Dev)." : "Infrastructure & CI/CD: wrote the infrastructure sizing and operating-cost proposal behind the client solution, provisioned the server, DNS and firewall, and built a GitHub Actions pipeline (lint, unit tests, Docker, auto-deploy to Dev).",
+            isVi ? "Bảo vệ dữ liệu: thiết kế backup và DR cho PostgreSQL (full backup + WAL archiving, cảnh báo qua Slack/Telegram/Email) với mục tiêu RPO < 1 giờ, RTO < 30 phút; chuyển storage từ MinIO sang AWS S3 kèm backup tự động." : "Data protection: designed PostgreSQL backup and DR (full backups + WAL archiving, Slack/Telegram/Email alerts) targeting RPO < 1 h and RTO < 30 min, and migrated storage from MinIO to AWS S3 with automated backups.",
+            isVi ? "Core backend: xây dựng audit log toàn hệ thống (diff trước/sau, người thực hiện, thời gian) qua API phân trang có kiểm tra quyền; cơ chế nhúng tài liệu học tập để tái sử dụng nội dung không nhân bản file; loại bỏ dữ liệu mock và chuẩn hoá chất lượng code API." : "Core backend: built a system-wide audit log (before/after diffs, actor, timestamp) behind a paginated, permission-gated API, reusable learning-material embedding without file duplication, and removed mock data while standardizing API code quality.",
+            isVi ? "Tính năng sản phẩm: mở rộng quiz engine với 4 loại câu hỏi chấm tự động và liên kết câu hỏi về Course → Chapter → Lesson; chuẩn hoá UX toàn ứng dụng (cảnh báo chưa lưu, thông báo đa ngôn ngữ, xác nhận xoá)." : "Product features: extended the quiz engine with 4 auto-graded question types linked back to Course → Chapter → Lesson, and standardized app-wide UX (unsaved-change warnings, localized toasts, delete confirmations)."
+          ],
+          technologies: "TypeScript · Node.js · React · PostgreSQL · AWS S3 · MinIO · Docker · GitHub Actions"
+        },
+        {
           name: "Veritone aiWARE Core",
           description: isVi
             ? "Core GraphQL API của nền tảng AI aiWARE · Tháng 1 – Tháng 3 2026. Team ~6 kỹ sư Việt Nam cùng các kỹ sư phía khách hàng ở nước ngoài. Tôi ở vị trí shadow: một kỹ sư headcount trao đổi với khách hàng hằng ngày vào ban đêm, còn tôi xử lý các task khách hàng giao vào ban ngày."
@@ -78,19 +91,6 @@ export const getExperiencesData = (locale: string): Experience[] => {
             isVi ? "Bảo mật & CI: xử lý toàn bộ CVE container mức Critical/High về 0 (Trivy) và gỡ tắc CI bằng cách refactor integration test." : "Security & CI: cleared all Critical/High container CVEs to zero Trivy findings and unblocked CI by refactoring integration tests."
           ],
           technologies: "Node.js · GraphQL · GraphQL Yoga · Fastify · PostgreSQL · Docker · Kubernetes · Helm · Argo CD · Trivy"
-        },
-        {
-          name: "Edu Vengy",
-          description: isVi
-            ? "Dự án chuyển đổi số ngắn hạn cho khách hàng Vengy: nền tảng e-learning và quản lý đào tạo tích hợp AI · ~2 tháng. Tôi thiết kế các phần core của backend và pipeline CI/CD."
-            : "Short-term digital transformation project for the client Vengy: an AI-powered e-learning and training management platform · ~2 months. I designed the core backend and the CI/CD pipeline.",
-          achievements: [
-            isVi ? "Hạ tầng & CI/CD: lập đề xuất cấu hình hạ tầng và chi phí vận hành làm cơ sở cho proposal gửi khách hàng; dựng server, DNS, firewall và pipeline GitHub Actions (lint, unit test, Docker, tự động deploy lên Dev)." : "Infrastructure & CI/CD: wrote the infrastructure sizing and operating-cost proposal behind the client solution, provisioned the server, DNS and firewall, and built a GitHub Actions pipeline (lint, unit tests, Docker, auto-deploy to Dev).",
-            isVi ? "Bảo vệ dữ liệu: thiết kế backup và DR cho PostgreSQL (full backup + WAL archiving, cảnh báo qua Slack/Telegram/Email) với mục tiêu RPO < 1 giờ, RTO < 30 phút; chuyển storage từ MinIO sang AWS S3 kèm backup tự động." : "Data protection: designed PostgreSQL backup and DR (full backups + WAL archiving, Slack/Telegram/Email alerts) targeting RPO < 1 h and RTO < 30 min, and migrated storage from MinIO to AWS S3 with automated backups.",
-            isVi ? "Core backend: xây dựng audit log toàn hệ thống (diff trước/sau, người thực hiện, thời gian) qua API phân trang có kiểm tra quyền; cơ chế nhúng tài liệu học tập để tái sử dụng nội dung không nhân bản file; loại bỏ dữ liệu mock và chuẩn hoá chất lượng code API." : "Core backend: built a system-wide audit log (before/after diffs, actor, timestamp) behind a paginated, permission-gated API, reusable learning-material embedding without file duplication, and removed mock data while standardizing API code quality.",
-            isVi ? "Tính năng sản phẩm: mở rộng quiz engine với 4 loại câu hỏi chấm tự động và liên kết câu hỏi về Course → Chapter → Lesson; chuẩn hoá UX toàn ứng dụng (cảnh báo chưa lưu, thông báo đa ngôn ngữ, xác nhận xoá)." : "Product features: extended the quiz engine with 4 auto-graded question types linked back to Course → Chapter → Lesson, and standardized app-wide UX (unsaved-change warnings, localized toasts, delete confirmations)."
-          ],
-          technologies: "TypeScript · Node.js · React · PostgreSQL · AWS S3 · MinIO · Docker · GitHub Actions"
         },
         {
           name: "EMS (Employee Management System)",
