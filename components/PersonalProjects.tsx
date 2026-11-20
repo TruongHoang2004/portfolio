@@ -38,7 +38,6 @@ export function PersonalProjects() {
                   <div className="flex flex-wrap gap-1.5">
                     {project.technologies.split(" · ").map((tech) => <span key={tech} className="rounded-md bg-muted px-2 py-1 text-xs text-muted-foreground">{tech}</span>)}
                   </div>
-                  {project.url && <a href={project.url} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1 mt-4 text-sm font-semibold text-accent underline underline-offset-4">Repository <span className="sr-only">for {project.name}</span><ArrowUpRight className="w-4 h-4" aria-hidden="true" /></a>}
                 </div>
               </article>
             </li>
