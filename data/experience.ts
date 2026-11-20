@@ -67,6 +67,16 @@ export const getExperiencesData = (locale: string): Experience[] => {
           technologies: "Go · Node.js · React · GraphQL · PostgreSQL · Docker · Kubernetes · Helm · Argo CD · Jenkins · Prometheus"
         },
         {
+          name: "Sunwest",
+          description: isVi
+            ? "Dự án DevOps ngắn hạn cho Sunwest, khách hàng của Veritone · Từ tháng 7 2026, song song với aiWARE Processing (lý do tôi rời Edu Vengy)."
+            : "Short-term DevOps engagement for Sunwest, a Veritone client · From Jul 2026, in parallel with aiWARE Processing.",
+          achievements: [
+            isVi ? "Xây dựng pipeline CI bằng Jenkins cho khoảng 20 service và áp dụng GitOps cho quy trình triển khai." : "Built Jenkins CI pipelines for ~20 services and introduced GitOps-based deployments."
+          ],
+          technologies: "Jenkins · GitOps · Docker · Kubernetes"
+        },
+        {
           name: "Edu Vengy",
           description: isVi
             ? "Dự án chuyển đổi số ngắn hạn cho khách hàng Vengy: nền tảng e-learning và quản lý đào tạo tích hợp AI · Tháng 5 – Tháng 7 2026, song song với aiWARE Processing. Team ~6 người (2 backend, 2 frontend, 1 PM, 1 BA); tôi thiết kế các phần core của backend và pipeline CI/CD."
