@@ -118,7 +118,7 @@ export const getExperiencesData = (locale: string): Experience[] => {
     },
     {
       company: "Tiên Phong Telecom Ecommerce",
-      role: isVi ? "Trưởng nhóm kỹ thuật & Kỹ sư Backend (Freelance)" : "Tech Lead & Backend Engineer (Freelance)",
+      role: isVi ? "Trưởng nhóm & Kỹ sư Backend (Freelance)" : "Team Lead & Backend Engineer (Freelance)",
       period: isVi ? "Tháng 3 2025 – Tháng 8 2025" : "Mar 2025 – Aug 2025",
       description: isVi
         ? "Dự án freelance ngắn hạn với nhóm 3 người (designer, frontend và tôi phụ trách backend, DevOps). Tôi quyết định các vấn đề kỹ thuật, làm việc trực tiếp với khách hàng và đưa sản phẩm vào vận hành với khách hàng thật."
