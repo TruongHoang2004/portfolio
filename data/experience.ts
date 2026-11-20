@@ -26,26 +26,12 @@ export const getExperiencesData = (locale: string): Experience[] => {
         : "Communi: an omnichannel customer-engagement platform of ~36 microservices, offered as SaaS and on-premise.",
       projects: [
         {
-          name: "Zalo Personal Connector",
-          description: isVi
-            ? "Service mới, đã release · Tự thiết kế và xây dựng một mình trong ~1 tuần. Communi trước đó chỉ hỗ trợ Zalo OA, trong khi chỉ tài khoản Zalo cá nhân mới nhận được tin nhắn từ nhóm."
-            : "New service, released · Designed and built solo in ~1 week. Communi previously supported only Zalo Official Accounts, but only personal Zalo accounts receive group messages.",
           achievements: [
-            isVi ? "Kiến trúc: service mới duy trì kết nối WebSocket liên tục tới từng tài khoản Zalo đã liên kết; là service NestJS duy nhất trong hệ microservice toàn Go, chọn NestJS để dùng thư viện zca-js." : "Architecture: a new service that keeps a persistent WebSocket connection to every linked Zalo account; the only NestJS service in an otherwise all-Go microservice platform, chosen to use the zca-js library.",
-            isVi ? "Thách thức: Zalo không có API chính thức cho tài khoản cá nhân, nên tôi xây dựng trên thư viện không chính thức zca-js." : "Challenge: Zalo offers no official API for personal accounts, so I built on the unofficial zca-js library.",
-            isVi ? "Tính năng: liên kết tài khoản bằng QR qua SSE, nhắn tin 1:1 và nhóm." : "Features: QR-code account linking over SSE, plus 1:1 and group messaging.",
-            isVi ? "Độ tin cậy & bảo mật: gửi webhook theo outbox pattern, MySQL leader locking, graceful shutdown, chống SSRF; ~12.500 dòng code với 59 test, CI và deploy lên Kubernetes." : "Reliability & security: outbox-based webhook delivery, MySQL leader locking, graceful shutdown and SSRF protection; ~12,500 lines with 59 tests, CI and Kubernetes deployment.",
-            isVi ? "Tích hợp: plugin Go ~3.700 dòng trong omni-bridge với xác minh webhook, gửi tin đồng bộ, phân loại lỗi tạm thời/vĩnh viễn và API liên kết QR." : "Integration: a ~3,700-line Go plugin in omni-bridge with webhook verification, synchronous delivery, temporary/permanent error classification and QR-linking APIs."
+            isVi ? "Kết nối Zalo cá nhân: tự thiết kế và xây dựng trong ~1 tuần một service NestJS mới (duy nhất trong hệ Go, để dùng thư viện không chính thức zca-js vì Zalo không có API cho tài khoản cá nhân), giữ kết nối WebSocket tới các tài khoản để nhận được tin nhắn nhóm mà Zalo OA không có; kèm plugin Go trong omni-bridge." : "Zalo personal accounts: designed and built solo in ~1 week a new NestJS service (the only one in an all-Go platform, to use the unofficial zca-js library since Zalo has no personal-account API) that holds WebSocket connections to linked accounts, unlocking group messages Zalo OA can't receive; plus its Go plugin in omni-bridge.",
+            isVi ? "Tích hợp Telegram group vào Communi Desk qua 2 service, gồm xử lý migrate nhóm và chặn lộ bot token trong log." : "Integrated Telegram group conversations into Communi Desk across 2 services, including group migration and bot-token leak fixes in logs.",
+            isVi ? "Xây dựng ~9.400 dòng integration/E2E test black-box cho 10 nền tảng với fake platform server, chạy song song trên GitLab CI." : "Built ~9,400 lines of black-box integration/E2E tests across 10 platforms with fake platform servers and parallel runs in GitLab CI."
           ],
-          technologies: "NestJS · TypeScript · zca-js · WebSocket · SSE · Prisma · MySQL · Go · Kubernetes",
-        },
-        {
-          name: "Integration & E2E testing",
-          achievements: [
-            "Built ~9,400 lines of black-box tests across 10 platforms with containerized environments, fake platform servers, parallel runs and GitLab CI reports.",
-            "Integrated Telegram group conversations into Communi Desk across 2 services, including group migration and log-token hardening.",
-          ],
-          technologies: "Go · Docker · GitLab CI · Kafka · Redis",
+          technologies: "Go · NestJS · TypeScript · zca-js · WebSocket · Prisma · MySQL · Kafka · Redis · Docker · Kubernetes · GitLab CI",
         },
       ],
     },
